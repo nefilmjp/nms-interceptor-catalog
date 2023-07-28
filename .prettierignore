@@ -1,0 +1,9 @@
+.vscode
+.next
+out
+pnpm-lock.yaml
+*.md
+*.json
+!/data/result.json
+!/data/import/interceptor.db.export.json
+!/public/interceptor.db.json
