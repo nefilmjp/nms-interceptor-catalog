@@ -54,9 +54,9 @@ export const InfoButton = () => {
                     Some settings and favorites can be saved (per browser)
                   </ListItem>
                   <ListItem>
-                    This project started as a way to find unique interceptors as
-                    prizes for events, so a few percent of the portal addresses
-                    are private
+                    This project started to find unique interceptors as prizes
+                    for events, so a few percent of the portal addresses are
+                    private
                   </ListItem>
                 </UnorderedList>
               </Box>
