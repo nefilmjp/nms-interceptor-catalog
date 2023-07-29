@@ -15,6 +15,7 @@ import {
   TabPanel,
   Link,
   Icon,
+  Box,
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -92,13 +93,19 @@ export const ShipInfo = ({ ...props }: ShipEditorProps) => {
         </Tabs>
       )}
       {data.address !== undefined && (
-        <Text
-          className='ff-glyphs'
-          fontSize={['3xl', '4xl']}
-          textAlign='center'
-        >
-          {data.address.toString(16).toUpperCase()}
-        </Text>
+        <Box ml='auto' mr='auto' mt='-2'>
+          <Text className='ff-geo' fontSize='lg' fontWeight='bold'>
+            {`${GALAXIES[data.galaxy]} (${data.galaxy + 1})`}
+          </Text>
+          <Text
+            className='ff-glyphs'
+            fontSize={['2xl', '3xl', '4xl']}
+            mt='-0.2em'
+            textAlign='center'
+          >
+            {data.address.toString(16).toUpperCase()}
+          </Text>
+        </Box>
       )}
       <TableContainer marginInline='auto'>
         <Table size='sm'>
