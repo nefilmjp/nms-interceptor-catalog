@@ -49,31 +49,16 @@ export const InfoButton = () => {
             <SimpleGrid row='1' spacing='4'>
               <Box>
                 <UnorderedList>
-                  {/* <ListItem>
-                    A few percent are private, because these interceptors were
-                    collected as prizes for the event.
-                  </ListItem>
-                  <ListItem>Coordinates are not included.</ListItem>
-                  <ListItem>
-                    In the hunting, no MODs or tools were used.
-                  </ListItem> */}
                   <ListItem>Currently unstable</ListItem>
                   <ListItem>
                     Some settings and favorites can be saved (per browser)
                   </ListItem>
+                  <ListItem>
+                    This project started as a way to find unique interceptors as
+                    prizes for events, so a few percent of the portal addresses
+                    are private
+                  </ListItem>
                 </UnorderedList>
-                {/* <Text>
-                  This project started with the goal of finding unique
-                  interceptors as prizes for events in my community.
-                </Text>
-                <Text mt='2'>
-                  As it turned out to be more than I expected, I decided to
-                  catalog and collect statistics on them.
-                </Text>
-                <Text mt='2'>
-                  So, coordinates are not included, and a few percent are
-                  private.
-                </Text> */}
               </Box>
               <Box>
                 <Text>Author</Text>
