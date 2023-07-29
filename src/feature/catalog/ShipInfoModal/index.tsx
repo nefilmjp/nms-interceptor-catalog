@@ -1,0 +1,1 @@
+export { ShipInfoModal } from './ShipInfoModal';

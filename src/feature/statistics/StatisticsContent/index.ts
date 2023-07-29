@@ -1,0 +1,1 @@
+export { StatisticsContent } from './StatisticsContent';

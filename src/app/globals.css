@@ -1,0 +1,52 @@
+@font-face {
+  font-family: nmsgeosans;
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizelegibility;
+  src:
+    url('https://font.nmscd.com/assets/font/NMSGeoSans_Kerned/Web-TT/NMSGeoSans_Kerned.woff')
+      format('woff'),
+    url('https://font.nmscd.com/assets/font/NMSGeoSans_Kerned/Web-TT/NMSGeoSans_Kerned.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: nmsglyphsmono;
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizelegibility;
+  src:
+    url('/assets/fonts/NMS-Glyphs-Mono-fix.woff') format('woff'),
+    url('/assets/fonts/NMS-Glyphs-Mono-fix.ttf') format('truetype');
+}
+
+body {
+  position: relative;
+  min-height: 100dvh;
+}
+
+main {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: calc(100dvh - 56px);
+  overflow: auto;
+}
+
+img,
+svg {
+  vertical-align: bottom;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ff-geo {
+  font-family: nmsgeosans, roboto, sans-serif !important;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.ff-glyphs {
+  font-family: nmsglyphsmono, roboto, sans-serif !important;
+}

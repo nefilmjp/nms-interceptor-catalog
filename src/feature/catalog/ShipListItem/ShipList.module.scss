@@ -1,0 +1,46 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.box {
+  position: relative;
+}
+
+.thumbButton {
+  display: block;
+  position: relative;
+  outline-offset: -3px;
+  cursor: pointer;
+
+  &:focus {
+    outline: 3px solid #0f0;
+  }
+
+  &:hover {
+    outline: 3px solid #ff0;
+  }
+}
+
+.thumb {
+  display: block;
+}
+
+.availIcon,
+.pubIcon,
+.favIcon {
+  position: absolute;
+  top: 8px;
+  width: max(16px, 1vw);
+  height: max(16px, 1vw);
+  pointer-events: none;
+}
+
+.availIcon {
+  left: 8px;
+}
+
+.pubIcon,
+.favIcon {
+  right: 8px;
+}
