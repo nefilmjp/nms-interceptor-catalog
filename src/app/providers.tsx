@@ -1,7 +1,7 @@
 'use client';
 
 import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { createContext, useMemo, type ReactNode } from 'react';
 
 import { LoadingSpinner } from '@/components/LoadingSpinner';
@@ -38,9 +38,15 @@ export function Providers({ children }: { children: ReactNode }) {
     [coll, db],
   );
 
+  const config = {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  };
+  const theme = extendTheme({ config });
+
   return (
     <CacheProvider>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <DatabaseContext.Provider value={value}>
           {!db ? <LoadingSpinner /> : children}
         </DatabaseContext.Provider>
