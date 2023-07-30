@@ -16,6 +16,7 @@ import {
   Link,
   Icon,
   Box,
+  Spinner,
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -61,12 +62,30 @@ export const ShipInfo = ({ ...props }: ShipEditorProps) => {
           </TabList>
           <TabPanels>
             {data.imageIds.map((id, idx) => (
-              <TabPanel key={`ship-info-tabpanel-${idx}`} p='0'>
+              <TabPanel
+                key={`ship-info-tabpanel-${idx}`}
+                p='0'
+                position='relative'
+              >
+                <Box
+                  alignItems='center'
+                  aria-hidden='true'
+                  bottom='0'
+                  display='flex'
+                  justifyContent='center'
+                  left='0'
+                  pos='absolute'
+                  right='0'
+                  top='0'
+                >
+                  <Spinner />
+                </Box>
                 <img
                   alt={`#${id}`}
                   height='576'
                   key={`image-${id}-${idx}`}
                   src={`https://i.imgur.com/${id}h.webp`}
+                  style={{ position: 'relative' }}
                   width='1024'
                 />
                 <Text fontSize='sm' mt='2' textAlign='right'>
