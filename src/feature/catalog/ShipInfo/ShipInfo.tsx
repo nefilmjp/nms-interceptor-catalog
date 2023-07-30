@@ -16,7 +16,6 @@ import {
   Link,
   Icon,
   Box,
-  Image,
   Spinner,
 } from '@chakra-ui/react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
