@@ -56,7 +56,13 @@ export const InfoButton = () => {
                   <ListItem>
                     This project started to find unique interceptors as prizes
                     for events, so a few percent of the portal addresses are
-                    private
+                    private.
+                  </ListItem>
+                  <ListItem>
+                    Currently, coordinates are not included. For each system,
+                    there is only one type of interceptor, so you may use
+                    dreadnought AI fragments to handpick class/params/SCS until
+                    you are satisfied.
                   </ListItem>
                 </UnorderedList>
               </Box>
