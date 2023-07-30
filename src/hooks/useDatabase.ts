@@ -3,7 +3,6 @@ import LZstring from 'lz-string';
 import { useState } from 'react';
 import { useMount } from 'react-use';
 
-import { PATH_PREFIX } from '@/config';
 import { initLokiAdaptor } from '@/utils/initLokiAdaptor';
 
 import type { ShipData } from '@/types';
@@ -20,9 +19,7 @@ export const useDatabase = (): loki | undefined => {
       autoload: true,
       autoloadCallback: async () => {
         // ファイルから最新のデータの更新日時を取得
-        const json: string = await fetch(
-          `${PATH_PREFIX}/data/lastModified.json`,
-        )
+        const json: string = await fetch(`/data/lastModified.json`)
           .then((res) => res.json())
           .catch();
         const latetestTimestamp = new Date(json).getTime();
@@ -49,9 +46,7 @@ export const useDatabase = (): loki | undefined => {
           });
 
           // ArrayBuffer->Uint8Array->String->JSON->Collection
-          const buffer: ArrayBuffer = await fetch(
-            `${PATH_PREFIX}/data/interceptor.db`,
-          )
+          const buffer: ArrayBuffer = await fetch(`/data/interceptor.db`)
             .then((res) => res.arrayBuffer())
             .catch();
           const jsonString = LZstring.decompressFromUint8Array(

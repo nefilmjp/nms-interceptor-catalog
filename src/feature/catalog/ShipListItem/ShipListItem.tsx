@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { ImLock, ImHeart, ImBubbles4 } from 'react-icons/im';
 
-import { THUMB_SIZES, PATH_PREFIX } from '@/config';
+import { THUMB_SIZES } from '@/config';
 import { CatalogContext } from '@/store/CatalogContext';
 
 import styles from './ShipList.module.scss';
@@ -26,7 +26,7 @@ export const ShipListItem = ({ ...props }: ShipListItemProps) => {
   const { settings } = useContext(CatalogContext);
 
   const src = useMemo(() => {
-    if (!data.imageIds) return `${PATH_PREFIX}/assets/images/empty.png`;
+    if (!data.imageIds) return `/assets/images/empty.png`;
     return `https://i.imgur.com/${data.imageIds[0]}${settings.thumbSize}.${
       THUMB_SIZES[settings.thumbSize].ext
     }`;
