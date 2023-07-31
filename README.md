@@ -1,6 +1,6 @@
 # No Man's Sky Interceptor Catalog
 
-Available at [https://nmsint.vercell.app](https://nmsint.vercel.app)
+Available at [https://nmsint.vercel.app](https://nmsint.vercel.app)
 
 ## Contributing
 
