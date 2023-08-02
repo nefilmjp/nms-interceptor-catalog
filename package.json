@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "run-p next:dev tsm:watch",
     "next:dev": "next dev",
-    "build": "next build",
+    "build": "run-s next:build redirect",
+    "next:build": "next build",
     "start": "cd out && serve",
     "eslint": "eslint --cache ./**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}",
     "eslint:fix": "eslint --cache --fix ./**/*.{js,mjs,cjs,jsx,ts,mts,cts,ts}",
@@ -17,6 +18,7 @@
     "type-check": "tsc --noEmit -p tsconfig.json",
     "tsm": "typed-scss-modules \"src/**/*.module.scss\"",
     "tsm:watch": "typed-scss-modules \"src/**/*.module.scss\" --watch",
+    "redirect": "rimraf scripts/dist && tsc -p tsconfig.scripts.json && node scripts/dist/scripts/redirect.mjs",
     "prepare": "npx simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -67,11 +69,13 @@
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-i": "2.28.0-2",
     "eslint-plugin-tsdoc": "^0.2.17",
+    "fs-extra": "^11.1.1",
     "lint-staged": "^13.2.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.27",
     "postcss-scss": "^4.0.6",
     "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
     "sass": "^1.64.2",
     "sass-loader": "^13.3.2",
     "serve": "^14.2.0",

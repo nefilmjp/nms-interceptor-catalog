@@ -1,3 +1,4 @@
+scripts/dist
 public/data/interceptor.db.json
 .eslintcache
 .env
