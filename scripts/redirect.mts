@@ -14,10 +14,10 @@ json.forEach((data) => {
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
-<title>Ship ID ${shipId} - No Man&#39;s Sky Interceptor Catalog</title>
-<meta property="og:url" content="https://nmsint.vercel.app/ship/${shipId}/" />
+<title>${shipId} - No Man&#39;s Sky Interceptor Catalog</title>
+<meta property="og:url" content="https://nmsint.vercel.app/ship/?id=${shipId}" />
 <meta property="og:site_name" content="No Man&#39;s Sky Interceptor Catalog" />
-<meta property="og:title" content="Ship ID ${shipId}" />
+<meta property="og:title" content="${shipId} - No Man&#39;s Sky Interceptor Catalog" />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://i.imgur.com/${imageId}h.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -28,3 +28,7 @@ json.forEach((data) => {
 </html>`;
   fse.outputFileSync(`out/ship/${shipId}/index.html`, html);
 });
+
+/*
+<meta property="og:description" content="Detailed information for the interceptor." />
+*/
