@@ -1,5 +1,4 @@
 import { Center, Link, Text } from '@chakra-ui/react';
-import { useSearchParams } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { useMount } from 'react-use';
 
@@ -8,15 +7,17 @@ import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { ShipInfo } from '@/feature/catalog/ShipInfo';
 import { ShipData } from '@/types';
 
-export const ShipContent = () => {
+interface ShipContentProps {
+  shipId: string;
+}
+
+export const ShipContent = (props: ShipContentProps) => {
+  const { shipId } = props;
   const { coll } = useContext(DatabaseContext);
 
   const [data, setData] = useState<ShipData | null>();
 
-  const searchParams = useSearchParams();
-
   useMount(() => {
-    const shipId = searchParams.get('id');
     if (!coll) {
       setData(null);
       return;

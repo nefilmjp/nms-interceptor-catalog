@@ -14,7 +14,7 @@ export const useDatabase = (): loki | undefined => {
     const adapter = initLokiAdaptor();
 
     const db = new loki('interceptor.db', {
-      env: 'BROWSER',
+      env: typeof window !== undefined ? 'BROWSER' : 'NODEJS',
       adapter,
       autoload: true,
       autoloadCallback: async () => {

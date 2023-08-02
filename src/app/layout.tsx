@@ -15,6 +15,12 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "No Man's Sky Interceptor Catalog",
+  authors: [{ name: 'Nefilm' }],
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
