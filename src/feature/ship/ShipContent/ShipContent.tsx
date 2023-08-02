@@ -5,6 +5,7 @@ import { useMount } from 'react-use';
 import { DatabaseContext } from '@/app/providers';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { ShipInfo } from '@/feature/catalog/ShipInfo';
+import { ShipContext } from '@/store/ShipContext';
 import { ShipData } from '@/types';
 
 interface ShipContentProps {
@@ -14,6 +15,7 @@ interface ShipContentProps {
 export const ShipContent = (props: ShipContentProps) => {
   const { shipId } = props;
   const { coll } = useContext(DatabaseContext);
+  const { settings, setSettings } = useContext(ShipContext);
 
   const [data, setData] = useState<ShipData | null>();
 
@@ -40,7 +42,12 @@ export const ShipContent = (props: ShipContentProps) => {
     <>
       {data ? (
         <>
-          <ShipInfo data={data} isSingle={true} />
+          <ShipInfo
+            data={data}
+            isSingle={true}
+            setSettings={setSettings}
+            settings={settings}
+          />
           <Center mt='6'>
             <Link href='https://ko-fi.com/D1D7N4R45' isExternal={true}>
               <img

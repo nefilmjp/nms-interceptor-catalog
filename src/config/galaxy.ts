@@ -254,4 +254,5 @@ export const GALAXIES = [
   'Uliciawai',
   'Tuhgrespod',
   'Iousongola',
+  'Odyalutai',
 ];

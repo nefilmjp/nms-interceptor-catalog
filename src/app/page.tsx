@@ -22,7 +22,6 @@ import type { InterceptorQuery, ShipData } from '@/types';
 export default function Catalog() {
   const { coll } = useContext(DatabaseContext);
 
-  // const [settings, setSettings] = useState<CatalogSettings>(defaultSettings);
   const [settings, setSettings] = useLocalStorage<CatalogSettings>(
     'settings',
     defaultSettings,

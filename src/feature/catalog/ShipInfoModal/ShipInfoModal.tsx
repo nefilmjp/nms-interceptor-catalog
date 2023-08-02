@@ -7,13 +7,9 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  SimpleGrid,
   Portal,
   Link,
   Box,
-  FormControl,
-  Switch,
-  FormLabel,
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 
@@ -60,77 +56,14 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
         }}
       >
         <ModalOverlay />
-        <ModalContent>
-          {/* <ModalHeader>
-            <HStack>
-              <Text>Specification</Text>
-              <Box ml='auto' mr='8'>
-                <FormControl alignItems='center' display='flex'>
-                  <FormLabel htmlFor='show-private' mb='0' ml='4'>
-                    Favorite
-                  </FormLabel>
-                  <Switch
-                    id='show-private'
-                    isChecked={
-                      favorites?.includes(shortId || '') ? true : false
-                    }
-                    onChange={(event) => {
-                      if (!favorites || !shortId) return;
-                      if (event.target.checked) {
-                        setFavorites([...favorites, shortId]);
-                      } else {
-                        setFavorites(favorites.filter((id) => id !== shortId));
-                      }
-                    }}
-                  />
-                </FormControl>
-              </Box>
-            </HStack>
-          </ModalHeader> */}
+        <ModalContent backgroundColor='chakra-body-bg' borderRadius='md'>
           <ModalCloseButton zIndex={2} />
           <ModalBody position='relative' pt='4' zIndex={1}>
-            <FormControl
-              alignItems='center'
-              display='flex'
-              justifyContent='flex-end'
-              position='absolute'
-              right='16'
-              top='6'
-              width='100px'
-            >
-              <FormLabel htmlFor='show-private' mb='0' ml='4'>
-                Favorite
-              </FormLabel>
-              {shipData && (
-                <Switch
-                  id='show-private'
-                  isChecked={
-                    settings.favorites.includes(shipData.uuid) ? true : false
-                  }
-                  onChange={(event) => {
-                    if (!settings.favorites) return;
-                    if (event.target.checked) {
-                      setSettings({
-                        ...settings,
-                        favorites: [...settings.favorites, shipData.uuid],
-                      });
-                    } else {
-                      setSettings({
-                        ...settings,
-                        favorites: [
-                          ...settings.favorites.filter(
-                            (id) => id !== shipData.uuid,
-                          ),
-                        ],
-                      });
-                    }
-                  }}
-                />
-              )}
-            </FormControl>
-            <SimpleGrid columns={1} spacing={4}>
-              <ShipInfo data={shipData} />
-            </SimpleGrid>
+            <ShipInfo
+              data={shipData}
+              setSettings={setSettings}
+              settings={settings}
+            />
           </ModalBody>
 
           <ModalFooter>
