@@ -1,12 +1,15 @@
 import fse from 'fs-extra';
-
-import db from '../public/data/interceptor.db.json' assert { type: 'json' };
+import LZstring from 'lz-string';
 
 import type { ShipData } from '../src/types/';
 
-db.forEach((data) => {
+const buffer = fse.readFileSync(process.cwd() + '/public/data/interceptor.db');
+const jsonString = LZstring.decompressFromUint8Array(new Uint8Array(buffer));
+const json: ShipData[] = JSON.parse(jsonString);
+
+json.forEach((data) => {
   const shipId = data.uuid.substring(0, 8);
-  const imageId = data.imageIds[0];
+  const imageId = data.imageIds![0];
   const html = `<!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
