@@ -21,7 +21,7 @@ export const defaultSettings: CatalogSettings = {
 
 interface CatalogContext {
   settings: CatalogSettings;
-  setSettings: (selection: CatalogSettings) => void;
+  setSettings: (settings: CatalogSettings) => void;
   items: (ShipData & LokiObj)[];
   setItems: (items: (ShipData & LokiObj)[]) => void;
   intQuery: InterceptorQuery;
@@ -31,7 +31,7 @@ interface CatalogContext {
 
 export const CatalogContext = createContext<CatalogContext>({
   settings: defaultSettings,
-  setSettings: function (_selection: CatalogSettings): void {
+  setSettings: function (_settings: CatalogSettings): void {
     throw new Error('Function not implemented.');
   },
   items: [],
