@@ -232,7 +232,7 @@ export const ShipInfo = ({ ...props }: ShipEditorProps) => {
                       isExternal={true}
                       href={`${location.protocol}//${
                         location.host
-                      }/ship/?id=${getShortId(data.uuid)}`}
+                      }/ship/${getShortId(data.uuid)}/`}
                     >
                       Individual page
                       <Icon
@@ -251,7 +251,7 @@ export const ShipInfo = ({ ...props }: ShipEditorProps) => {
                         navigator.clipboard.writeText(
                           `${location.protocol}//${
                             location.host
-                          }/ship/?id=${getShortId(data.uuid)}`,
+                          }/ship/${getShortId(data.uuid)}/`,
                         )
                       }
                     >

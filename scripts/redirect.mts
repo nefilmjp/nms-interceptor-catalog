@@ -14,11 +14,10 @@ json.forEach((data) => {
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
-<title>Ship ID ${shipId} - No Man&#x39;s Sky Interceptor Catalog</title>
+<title>Ship ID ${shipId} - No Man&#39;s Sky Interceptor Catalog</title>
 <meta property="og:url" content="https://nmsint.vercel.app/ship/${shipId}/" />
-<meta property="og:site_name" content="No Man&#x39;s Sky Interceptor Catalog" />
-<meta property="og:title" content="Ship ID ${shipId} - No Man&#x39;s Sky Interceptor Catalog" />
-<meta property="og:description" content="Detailed information for the interceptor." />
+<meta property="og:site_name" content="No Man&#39;s Sky Interceptor Catalog" />
+<meta property="og:title" content="Ship ID ${shipId}" />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="https://i.imgur.com/${imageId}h.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
