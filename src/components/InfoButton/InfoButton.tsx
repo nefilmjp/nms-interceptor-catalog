@@ -125,6 +125,7 @@ export const InfoButton = () => {
                   />
                 </Link>
               </Box> */}
+              <Text textAlign='center'>© Nefilm</Text>
             </SimpleGrid>
           </ModalBody>
 

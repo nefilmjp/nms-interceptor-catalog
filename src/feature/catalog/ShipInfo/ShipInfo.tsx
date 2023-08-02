@@ -234,7 +234,7 @@ export const ShipInfo = ({ ...props }: ShipEditorProps) => {
                         location.host
                       }/ship/?id=${getShortId(data.uuid)}`}
                     >
-                      Single page
+                      Individual page
                       <Icon
                         as={FaExternalLinkAlt}
                         h='0.8em'
