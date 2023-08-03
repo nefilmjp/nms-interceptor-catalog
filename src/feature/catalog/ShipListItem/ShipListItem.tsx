@@ -41,8 +41,18 @@ export const ShipListItem = ({ ...props }: ShipListItemProps) => {
       style={style}
     >
       <>
-        {data.availability === 2 && <ImLock className={styles.availIcon} />}
-        {data.availability === 3 && <ImBubbles4 className={styles.availIcon} />}
+        {data.availability === 2 && (
+          <ImLock
+            className={styles.availIcon}
+            fill='var(--chakra-colors-white)'
+          />
+        )}
+        {data.availability === 3 && (
+          <ImBubbles4
+            className={styles.availIcon}
+            fill='var(--chakra-colors-white)'
+          />
+        )}
         {settings.favorites && settings.favorites.includes(data.uuid) && (
           <ImHeart
             className={styles.favIcon}
