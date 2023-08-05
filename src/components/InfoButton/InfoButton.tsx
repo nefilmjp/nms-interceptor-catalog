@@ -49,9 +49,11 @@ export const InfoButton = () => {
             <SimpleGrid row='1' spacing='4'>
               <Box>
                 <UnorderedList>
-                  <ListItem>Currently unstable</ListItem>
                   <ListItem>
                     Some settings and favorites can be saved (per browser)
+                  </ListItem>
+                  <ListItem>
+                    All interceptors in this catalog are found by me.
                   </ListItem>
                   <ListItem>
                     This project started to find unique interceptors as prizes
