@@ -25,12 +25,18 @@ export const ShipListItem = ({ ...props }: ShipListItemProps) => {
   const { data, onKeyDown, onClick, style } = props;
   const { settings } = useContext(CatalogContext);
 
+  const thumbIndex = useMemo(() => {
+    if (!data.imageIds || !settings.rearView) return 0;
+    if (settings.rearView && data.imageIds.length > 1) return 1;
+    return 0;
+  }, [data.imageIds, settings.rearView]);
+
   const src = useMemo(() => {
     if (!data.imageIds) return `/assets/images/empty.png`;
-    return `https://i.imgur.com/${data.imageIds[0]}${settings.thumbSize}.${
-      THUMB_SIZES[settings.thumbSize].ext
-    }`;
-  }, [data.imageIds, settings.thumbSize]);
+    return `https://i.imgur.com/${data.imageIds[thumbIndex]}${
+      settings.thumbSize
+    }.${THUMB_SIZES[settings.thumbSize].ext}`;
+  }, [data.imageIds, settings.thumbSize, thumbIndex]);
 
   return (
     // eslint-disable-next-line @next/next/no-img-element

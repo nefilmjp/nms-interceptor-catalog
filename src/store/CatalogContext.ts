@@ -10,6 +10,7 @@ export interface CatalogSettings {
   showPrivate: boolean;
   onlyFavorites: boolean;
   favorites: string[];
+  rearView: boolean;
 }
 
 export const defaultSettings: CatalogSettings = {
@@ -17,6 +18,7 @@ export const defaultSettings: CatalogSettings = {
   showPrivate: false,
   onlyFavorites: false,
   favorites: [],
+  rearView: false,
 };
 
 interface CatalogContext {
