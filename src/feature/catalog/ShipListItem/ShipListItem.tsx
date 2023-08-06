@@ -8,7 +8,7 @@ import {
 import { ImLock, ImHeart, ImBubbles4 } from 'react-icons/im';
 
 import { THUMB_SIZES } from '@/config';
-import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 import styles from './ShipList.module.scss';
 
@@ -23,7 +23,7 @@ interface ShipListItemProps {
 
 export const ShipListItem = ({ ...props }: ShipListItemProps) => {
   const { data, onKeyDown, onClick, style } = props;
-  const { settings } = useContext(CatalogContext);
+  const { settings } = useContext(CommonContext);
 
   const thumbIndex = useMemo(() => {
     if (!data.imageIds || !settings.rearView) return 0;

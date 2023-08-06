@@ -2,10 +2,9 @@ import { Center, Link, Text } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { useMount } from 'react-use';
 
-import { DatabaseContext } from '@/app/providers';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { ShipInfo } from '@/feature/catalog/ShipInfo';
-import { ShipContext } from '@/store/ShipContext';
+import { CommonContext } from '@/store/CommonContext';
 import { ShipData } from '@/types';
 
 interface ShipContentProps {
@@ -14,8 +13,7 @@ interface ShipContentProps {
 
 export const ShipContent = (props: ShipContentProps) => {
   const { shipId } = props;
-  const { coll } = useContext(DatabaseContext);
-  const { settings, setSettings } = useContext(ShipContext);
+  const { coll, settings, setSettings, parts } = useContext(CommonContext);
 
   const [data, setData] = useState<ShipData | null>();
 
@@ -45,6 +43,7 @@ export const ShipContent = (props: ShipContentProps) => {
           <ShipInfo
             data={data}
             isSingle={true}
+            parts={parts}
             setSettings={setSettings}
             settings={settings}
           />

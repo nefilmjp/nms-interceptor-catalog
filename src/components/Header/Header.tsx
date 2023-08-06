@@ -1,10 +1,10 @@
 import { HStack, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-import { ColorButton } from '../ColorButton';
 import { GlobalMenu } from '../GlobalMenu';
 import { InfoButton } from '../InfoButton';
 import { KofiButton } from '../KofiButton';
+import { SettingsButton } from '../SettingsButton';
 
 interface HeaderProps {
   children?: ReactNode;
@@ -37,7 +37,7 @@ export function Header(props: HeaderProps) {
       </Text>
       {children}
       <HStack display={['none', 'none', 'flex']}>
-        <ColorButton />
+        <SettingsButton />
         <InfoButton />
         <KofiButton />
       </HStack>

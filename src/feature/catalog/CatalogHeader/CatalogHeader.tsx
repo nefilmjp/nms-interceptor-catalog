@@ -3,14 +3,14 @@ import NextLink from 'next/link';
 import { useContext } from 'react';
 import { FaChartPie } from 'react-icons/fa';
 
-import { DatabaseContext } from '@/app/providers';
 import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 import { SearchDrawer } from '../SearchDrawer';
 import { ThumbSizeButton } from '../ThumbSizeButton';
 
 export const CatalogHeader = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll } = useContext(CommonContext);
   const { items } = useContext(CatalogContext);
 
   return (

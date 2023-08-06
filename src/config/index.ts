@@ -1,3 +1,6 @@
+import { PARTS_DEFAULT } from './profiles/default';
+import { PARTS_NMSGE } from './profiles/nmsge';
+
 export const PATH_PREFIX = process.env['NEXT_PUBLIC_PATH_PREFIX'];
 
 export const THUMB_SIZES = {
@@ -70,4 +73,9 @@ export const SHIP_AVAILABILITY = {
   1: 'Public',
   2: 'Private',
   3: 'Conditional',
+};
+
+export const PARTS_PROFILES = {
+  default: PARTS_DEFAULT,
+  nmsge: PARTS_NMSGE,
 };

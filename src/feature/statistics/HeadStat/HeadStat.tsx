@@ -3,20 +3,19 @@ import { Center } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
 import { CHART_COLOR } from '@/config';
-import { PARTS_HEAD } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
 export const HeadStat = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = 'interceptor.head' as keyof Interceptor;
 
   const values = useMemo(
     () => [
-      ...Object.keys(PARTS_HEAD).map((key) =>
+      ...Object.keys(parts.head).map((key) =>
         coll!
           .chain()
           .find({ [propName]: { $eq: parseInt(key, 10) } })
@@ -43,12 +42,12 @@ export const HeadStat = () => {
             CHART_COLOR.gray,
           ],
           labels: values[3]
-            ? [...Object.values(PARTS_HEAD), '(Not set)']
-            : Object.values(PARTS_HEAD),
+            ? [...Object.values(parts.head), '(Not set)']
+            : Object.values(parts.head),
         },
       ],
     }),
-    [values],
+    [parts.head, values],
   );
 
   return (

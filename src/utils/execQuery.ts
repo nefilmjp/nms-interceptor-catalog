@@ -1,4 +1,4 @@
-import { CatalogSettings } from '@/store/CatalogContext';
+import { AppSettings } from '@/store/CommonContext';
 
 import type { InterceptorQuery, ShipData } from '@/types';
 
@@ -30,7 +30,7 @@ const parseQuery = (query: Record<string, any>, parentProp?: string) => {
 export const execQuery = (
   coll: Collection<ShipData> | undefined,
   intQuery: InterceptorQuery,
-  settings: CatalogSettings,
+  settings: AppSettings,
 ): (ShipData & LokiObj)[] => {
   if (!coll) {
     return [];

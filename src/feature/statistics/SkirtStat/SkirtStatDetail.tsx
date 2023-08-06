@@ -3,21 +3,20 @@ import { Center } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
 import { CHART_COLOR, CHART_COLOR_ARRAY } from '@/config';
-import { PARTS_SKIRT_TYPE } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
 export const SkirtStatDetail = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = 'interceptor.skirtType' as keyof Interceptor;
   const propNameWing = 'interceptor.skirtColored' as keyof Interceptor;
 
   const values = useMemo(
     () => [
-      ...Object.keys(PARTS_SKIRT_TYPE).map((key) =>
+      ...Object.keys(parts.skirtType).map((key) =>
         coll!
           .chain()
           .find({ [propName]: { $eq: parseInt(key, 10) } })
@@ -28,13 +27,12 @@ export const SkirtStatDetail = () => {
         .find({ [propName]: { $exists: false } })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.skirtType],
   );
 
   const valueColor = useMemo(
     () => [
-      ...Object.keys(PARTS_SKIRT_TYPE)
+      ...Object.keys(parts.skirtType)
         .map((skirt) => [
           ...[0, 1]
             .map((color) =>
@@ -83,8 +81,7 @@ export const SkirtStatDetail = () => {
         })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.skirtType],
   );
 
   const data = useMemo(
@@ -120,14 +117,14 @@ export const SkirtStatDetail = () => {
         },
         {
           labels: values[6]
-            ? [...Object.values(PARTS_SKIRT_TYPE), '(Not set)']
-            : Object.values(PARTS_SKIRT_TYPE),
+            ? [...Object.values(parts.skirtType), '(Not set)']
+            : Object.values(parts.skirtType),
           data: values,
           backgroundColor: CHART_COLOR_ARRAY,
         },
       ],
     }),
-    [values, valueColor],
+    [valueColor, values, parts.skirtType],
   );
 
   return (

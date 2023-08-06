@@ -2,13 +2,14 @@ import { Box, Heading } from '@chakra-ui/react';
 import { Select, MultiValue, OptionBase } from 'chakra-react-select';
 import { useMemo } from 'react';
 
-import { PARTS_BOTTOM_TYPE } from '@/config/parts';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, BottomType } from '@/types';
 
 interface BottomFinderProps {
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 class Option implements OptionBase {
@@ -20,18 +21,18 @@ class Option implements OptionBase {
 }
 
 export const BottomFinder = ({ ...props }: BottomFinderProps) => {
-  const { intQuery, setIntQuery } = props;
+  const { intQuery, setIntQuery, parts } = props;
 
   const Options: Option[] = useMemo(
     () =>
       [
-        ...Object.entries(PARTS_BOTTOM_TYPE).map(
+        ...Object.entries(parts.bottomType).map(
           ([value, label]) =>
             new Option(parseInt(value, 10) as unknown as BottomType, label, ''),
         ),
         new Option(-1, '(Not set)', ''),
       ].filter((op) => !intQuery.bottomType?.includes(op.value)),
-    [intQuery.bottomType],
+    [intQuery.bottomType, parts.bottomType],
   );
 
   return (
@@ -56,7 +57,7 @@ export const BottomFinder = ({ ...props }: BottomFinderProps) => {
             (value) =>
               new Option(
                 value,
-                value === -1 ? '(Not set)' : PARTS_BOTTOM_TYPE[value],
+                value === -1 ? '(Not set)' : parts.bottomType[value],
                 '',
               ),
           ) || []

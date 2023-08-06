@@ -50,10 +50,11 @@ export const InfoButton = () => {
               <Box>
                 <UnorderedList>
                   <ListItem>
-                    Some settings and favorites can be saved (per browser)
+                    Some settings and favorites will be saved per browser.
                   </ListItem>
                   <ListItem>
-                    All interceptors in this catalog are found by me.
+                    All interceptors in this catalog are found by Nefilm. You
+                    may verify the discoverer of the systems.
                   </ListItem>
                   <ListItem>
                     This project started to find unique interceptors as prizes
@@ -61,10 +62,15 @@ export const InfoButton = () => {
                     private.
                   </ListItem>
                   <ListItem>
-                    Currently, coordinates are not included. For each system,
-                    there is only one type of interceptor, so you may use
-                    dreadnought AI fragments to handpick class/params/SCS until
-                    you are satisfied.
+                    In this project, increasing the total count takes priority.
+                    The reason for having only the minimum information is to
+                    reduce the processing time per ship.
+                  </ListItem>
+                  <ListItem>
+                    Coordinates are not included. For each system, there is only
+                    one type of interceptor, so you may use dreadnought AI
+                    fragments to handpick class/params/SCS until you are
+                    satisfied.
                   </ListItem>
                 </UnorderedList>
               </Box>

@@ -3,21 +3,20 @@ import { Center } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
 import { CHART_COLOR, CHART_COLOR_ARRAY } from '@/config';
-import { PARTS_BODY_TYPE } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
 export const BodyStatDetail = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = 'interceptor.bodyType' as keyof Interceptor;
   const propNameWing = 'interceptor.bodyWing' as keyof Interceptor;
 
   const values = useMemo(
     () => [
-      ...Object.keys(PARTS_BODY_TYPE).map((key) =>
+      ...Object.keys(parts.bodyType).map((key) =>
         coll!
           .chain()
           .find({ [propName]: { $eq: parseInt(key, 10) } })
@@ -28,13 +27,12 @@ export const BodyStatDetail = () => {
         .find({ [propName]: { $exists: false } })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.bodyType],
   );
 
   const valuesWing = useMemo(
     () => [
-      ...Object.keys(PARTS_BODY_TYPE)
+      ...Object.keys(parts.bodyType)
         .map((body) => [
           ...[0, 1, 2]
             .map((wing) =>
@@ -83,8 +81,7 @@ export const BodyStatDetail = () => {
         })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.bodyType],
   );
 
   const data = useMemo(
@@ -123,14 +120,14 @@ export const BodyStatDetail = () => {
         },
         {
           labels: values[5]
-            ? [...Object.values(PARTS_BODY_TYPE), '(Not set)']
-            : Object.values(PARTS_BODY_TYPE),
+            ? [...Object.values(parts.bodyType), '(Not set)']
+            : Object.values(parts.bodyType),
           data: values,
           backgroundColor: CHART_COLOR_ARRAY,
         },
       ],
     }),
-    [values, valuesWing],
+    [parts.bodyType, values, valuesWing],
   );
 
   return (
@@ -141,7 +138,7 @@ export const BodyStatDetail = () => {
           plugins: {
             title: {
               display: true,
-              text: `Body/Rear Wing (n=${coll!.count()})`,
+              text: `Body/${parts.wingLabel} (n=${coll!.count()})`,
             },
             datalabels: {
               textAlign: 'center',

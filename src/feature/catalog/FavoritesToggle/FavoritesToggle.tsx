@@ -1,10 +1,10 @@
 import { Box, FormControl, FormLabel, Switch } from '@chakra-ui/react';
 import { useContext } from 'react';
 
-import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 export const FavoritesToggle = () => {
-  const { settings, setSettings } = useContext(CatalogContext);
+  const { settings, setSettings } = useContext(CommonContext);
 
   return (
     <Box>

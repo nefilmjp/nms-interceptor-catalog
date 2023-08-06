@@ -2,26 +2,22 @@
 
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { createContext, useMemo, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
+import { useLocalStorage } from 'react-use';
 
 import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { PARTS_PROFILES } from '@/config';
 import { useDatabase } from '@/hooks/useDatabase';
+import {
+  type AppSettings,
+  CommonContext,
+  defaultSettings,
+} from '@/store/CommonContext';
 
 import type { ShipData } from '@/types';
 
-interface DatabaseContext {
-  db: LokiConstructor | undefined;
-  coll: Collection<ShipData> | undefined;
-}
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
-export const DatabaseContext = createContext<DatabaseContext>({
-  db: undefined,
-  coll: undefined,
-});
-/* eslint-enable @typescript-eslint/no-unused-vars */
-
 export function Providers({ children }: { children: ReactNode }) {
+  // Database
   const db = useDatabase();
   const coll = useMemo(
     () =>
@@ -30,14 +26,33 @@ export function Providers({ children }: { children: ReactNode }) {
     [db?.collections.length],
   );
 
-  const value = useMemo(
-    () => ({
-      db,
-      coll,
-    }),
-    [coll, db],
+  // Settings
+  const [settings, setSettings] = useLocalStorage<AppSettings>(
+    'settings',
+    defaultSettings,
   );
 
+  // Parts Name
+  const parts = useMemo(
+    () => PARTS_PROFILES[settings?.partsName || 'default'],
+    [settings?.partsName],
+  );
+
+  const value = useMemo(
+    () =>
+      settings && db
+        ? {
+            settings,
+            setSettings,
+            parts,
+            db,
+            coll,
+          }
+        : null,
+    [coll, db, parts, setSettings, settings],
+  );
+
+  // Chakra UI
   const config = {
     initialColorMode: 'dark',
     useSystemColorMode: false,
@@ -47,9 +62,13 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <CacheProvider>
       <ChakraProvider theme={theme}>
-        <DatabaseContext.Provider value={value}>
-          {!db ? <LoadingSpinner /> : children}
-        </DatabaseContext.Provider>
+        {!value ? (
+          <LoadingSpinner />
+        ) : (
+          <CommonContext.Provider value={value}>
+            {children}
+          </CommonContext.Provider>
+        )}
       </ChakraProvider>
     </CacheProvider>
   );

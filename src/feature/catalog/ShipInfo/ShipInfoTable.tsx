@@ -14,26 +14,21 @@ import { useUpdateEffect } from 'react-use';
 import { SHIP_AVAILABILITY } from '@/config';
 import { GALAXIES } from '@/config/galaxy';
 import {
-  PARTS_BODY_TYPE,
-  PARTS_BOTTOM_TYPE,
-  PARTS_HEAD,
   PARTS_OPTION_WING,
-  PARTS_PRIMARY_COLOR,
-  PARTS_SECONDARY_COLOR,
   PARTS_SKIRT_PAINTED,
-  PARTS_SKIRT_TYPE,
-  PARTS_TOP_TYPE,
-} from '@/config/parts';
+} from '@/config/profiles/common';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 import { getShortId } from '@/utils/getShortId';
 
 import type { ShipData } from '@/types';
 
 interface ShipInfoTableProps {
   data: ShipData;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
-  const { data } = props;
+  const { data, parts } = props;
   const { interceptor } = data;
 
   const { onCopy, value, setValue, hasCopied } = useClipboard('');
@@ -64,7 +59,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Primary Color</Th>
             <Td>
               {interceptor.primaryColor !== undefined
-                ? PARTS_PRIMARY_COLOR[interceptor.primaryColor]
+                ? parts.primaryColor[interceptor.primaryColor]
                 : '-'}
             </Td>
           </Tr>
@@ -72,7 +67,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Secondary Color</Th>
             <Td>
               {interceptor.secondaryColor !== undefined
-                ? PARTS_SECONDARY_COLOR[interceptor.secondaryColor]
+                ? parts.secondaryColor[interceptor.secondaryColor]
                 : '-'}
             </Td>
           </Tr>
@@ -80,7 +75,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Head</Th>
             <Td>
               {interceptor.head !== undefined
-                ? PARTS_HEAD[interceptor.head]
+                ? parts.head[interceptor.head]
                 : '-'}
             </Td>
           </Tr>
@@ -88,12 +83,12 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Body</Th>
             <Td>
               {interceptor.bodyType !== undefined
-                ? PARTS_BODY_TYPE[interceptor.bodyType]
+                ? parts.bodyType[interceptor.bodyType]
                 : '-'}
             </Td>
           </Tr>
           <Tr>
-            <Th>Rear Wing</Th>
+            <Th>{parts.wingLabel}</Th>
             <Td>
               {interceptor.bodyWing !== undefined
                 ? PARTS_OPTION_WING[interceptor.bodyWing]
@@ -104,7 +99,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Top Structure</Th>
             <Td>
               {interceptor.topType !== undefined
-                ? PARTS_TOP_TYPE[interceptor.topType]
+                ? parts.topType[interceptor.topType]
                 : '-'}
             </Td>
           </Tr>
@@ -112,7 +107,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Bottom Structure</Th>
             <Td>
               {interceptor.bottomType !== undefined
-                ? PARTS_BOTTOM_TYPE[interceptor.bottomType]
+                ? parts.bottomType[interceptor.bottomType]
                 : '-'}
             </Td>
           </Tr>
@@ -120,7 +115,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             <Th>Skirt</Th>
             <Td>
               {interceptor.skirtType !== undefined
-                ? PARTS_SKIRT_TYPE[interceptor.skirtType]
+                ? parts.skirtType[interceptor.skirtType]
                 : '-'}
               {interceptor.skirtColored !== undefined
                 ? ` (${PARTS_SKIRT_PAINTED[interceptor.skirtColored]})`

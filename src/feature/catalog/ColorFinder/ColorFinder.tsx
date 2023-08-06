@@ -11,7 +11,7 @@ import {
 import { omit } from 'lodash-es';
 import { useMemo } from 'react';
 
-import { PARTS_PRIMARY_COLOR, PARTS_SECONDARY_COLOR } from '@/config/parts';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, SkirtType } from '@/types';
 
@@ -20,15 +20,16 @@ interface ColorFinderProps {
   propName: 'primaryColor' | 'secondaryColor';
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const ColorFinder = ({ ...props }: ColorFinderProps) => {
-  const { label, propName, intQuery, setIntQuery } = props;
+  const { label, propName, intQuery, setIntQuery, parts } = props;
 
   const colors = useMemo(
     () =>
-      propName === 'primaryColor' ? PARTS_PRIMARY_COLOR : PARTS_SECONDARY_COLOR,
-    [propName],
+      propName === 'primaryColor' ? parts.primaryColor : parts.secondaryColor,
+    [propName, parts],
   );
 
   return (

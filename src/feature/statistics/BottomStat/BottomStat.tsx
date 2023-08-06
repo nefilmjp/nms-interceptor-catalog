@@ -3,20 +3,19 @@ import { Center } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
 import { CHART_COLOR_ARRAY } from '@/config';
-import { PARTS_BOTTOM_TYPE } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
 export const BottomStat = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = 'interceptor.bottomType' as keyof Interceptor;
 
   const values = useMemo(
     () => [
-      ...Object.keys(PARTS_BOTTOM_TYPE).map((key) =>
+      ...Object.keys(parts.bottomType).map((key) =>
         coll!
           .chain()
           .find({ [propName]: { $eq: parseInt(key, 10) } })
@@ -27,8 +26,7 @@ export const BottomStat = () => {
         .find({ [propName]: { $exists: false } })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.bottomType],
   );
 
   const data = useMemo(
@@ -38,12 +36,12 @@ export const BottomStat = () => {
           data: values,
           backgroundColor: CHART_COLOR_ARRAY,
           labels: values[3]
-            ? [...Object.values(PARTS_BOTTOM_TYPE), '(Not set)']
-            : Object.values(PARTS_BOTTOM_TYPE),
+            ? [...Object.values(parts.bottomType), '(Not set)']
+            : Object.values(parts.bottomType),
         },
       ],
     }),
-    [values],
+    [parts.bottomType, values],
   );
 
   return (

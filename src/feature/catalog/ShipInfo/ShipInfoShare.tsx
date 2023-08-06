@@ -14,14 +14,14 @@ import { FaCopy, FaExternalLinkAlt, FaHeart, FaRegHeart } from 'react-icons/fa';
 
 import { getShortId } from '@/utils/getShortId';
 
-import type { CatalogSettings } from '@/store/CatalogContext';
+import type { AppSettings } from '@/store/CommonContext';
 import type { ShipData } from '@/types';
 
 interface ShipInfoShareProps {
   data: ShipData;
   isSingle?: boolean | undefined;
-  settings: CatalogSettings;
-  setSettings: (settings: CatalogSettings) => void;
+  settings: AppSettings;
+  setSettings: (settings: AppSettings) => void;
 }
 
 export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
