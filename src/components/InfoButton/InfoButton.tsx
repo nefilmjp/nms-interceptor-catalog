@@ -58,22 +58,24 @@ export const InfoButton = () => {
                     class/params/SCS until you are satisfied.
                   </ListItem>
                   <ListItem>
-                    In this project, increasing the total count takes priority.
-                    The reason for having only the minimum information is to
-                    reduce the processing time per ship.
-                  </ListItem>
-                  <ListItem>
                     This project started to find unique interceptors as prizes
                     for events, so a few percent of the portal addresses are
                     private.
                   </ListItem>
                   <ListItem>
-                    Currently, this project is being operated personally. All
-                    ships in this catalog are found by the project author. You
-                    may verify the discoverer of the systems.
+                    Increasing the total count takes priority. For the sake of
+                    efficiency, some specs are omitted (or have lower accuracy).
+                  </ListItem>
+                  <ListItem>
+                    All ships in this catalog are found in vanilla game (not
+                    modded, not tool assisted) by the project author. You may
+                    verify the discoverer of the systems.
                   </ListItem>
                   <ListItem>
                     Some settings and favorites will be saved per browser.
+                  </ListItem>
+                  <ListItem>
+                    Currently, this project is being operated personally.
                   </ListItem>
                 </UnorderedList>
               </Box>
