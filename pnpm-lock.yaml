@@ -21,11 +21,11 @@ dependencies:
     specifier: ^4.7.0
     version: 4.7.0(@chakra-ui/form-control@2.1.0)(@chakra-ui/icon@3.1.0)(@chakra-ui/layout@2.3.0)(@chakra-ui/media-query@3.3.0)(@chakra-ui/menu@2.2.0)(@chakra-ui/spinner@2.1.0)(@chakra-ui/system@2.6.0)(@emotion/react@11.11.1)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
   chart.js:
-    specifier: ^4.3.2
-    version: 4.3.2
+    specifier: ^4.3.3
+    version: 4.3.3
   chartjs-plugin-datalabels:
     specifier: ^2.2.0
-    version: 2.2.0(chart.js@4.3.2)
+    version: 2.2.0(chart.js@4.3.3)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -49,7 +49,7 @@ dependencies:
     version: 18.2.0
   react-chartjs-2:
     specifier: ^5.2.0
-    version: 5.2.0(chart.js@4.3.2)(react@18.2.0)
+    version: 5.2.0(chart.js@4.3.3)(react@18.2.0)
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
@@ -80,8 +80,8 @@ devDependencies:
     specifier: ^1.5.8
     version: 1.5.8
   '@types/node':
-    specifier: 20.4.5
-    version: 20.4.5
+    specifier: 20.4.8
+    version: 20.4.8
   '@types/react':
     specifier: 18.2.18
     version: 18.2.18
@@ -131,8 +131,8 @@ devDependencies:
     specifier: ^4.0.6
     version: 4.0.6(postcss@8.4.27)
   prettier:
-    specifier: ^3.0.0
-    version: 3.0.0
+    specifier: ^3.0.1
+    version: 3.0.1
   rimraf:
     specifier: ^5.0.1
     version: 5.0.1
@@ -165,10 +165,10 @@ devDependencies:
     version: 6.0.3(stylelint@15.10.2)
   stylelint-prettier:
     specifier: ^4.0.2
-    version: 4.0.2(prettier@3.0.0)(stylelint@15.10.2)
+    version: 4.0.2(prettier@3.0.1)(stylelint@15.10.2)
   typed-scss-modules:
-    specifier: ^7.1.2
-    version: 7.1.2(sass@1.64.2)
+    specifier: ^7.1.3
+    version: 7.1.3(sass@1.64.2)
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -1814,7 +1814,7 @@ packages:
     resolution: {integrity: sha512-MxObHvNl4A69ofaTRU8DFqvgzzv8s9yRtaPPm5gud9HDNvpB3GPQFvNuTWAI59B9huVGV5jXYJwbCsmBsOGYWA==}
     dependencies:
       '@types/jsonfile': 6.1.1
-      '@types/node': 20.4.5
+      '@types/node': 20.4.8
     dev: true
 
   /@types/js-cookie@2.2.7:
@@ -1832,7 +1832,7 @@ packages:
   /@types/jsonfile@6.1.1:
     resolution: {integrity: sha512-GSgiRCVeapDN+3pqA35IkQwasaCh/0YFH5dEF6S88iDvEn901DjOeH3/QPY+XYP1DFzDZPvIvfeEgk+7br5png==}
     dependencies:
-      '@types/node': 20.4.5
+      '@types/node': 20.4.8
     dev: true
 
   /@types/lodash-es@4.17.8:
@@ -1858,8 +1858,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node@20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  /@types/node@20.4.8:
+    resolution: {integrity: sha512-0mHckf6D2DiIAzh8fM8f3HQCvMKDpK94YQ0DSVkfWTG9BZleYIWudw9cJxX8oCk9bM+vAkDyujDV6dmKHbvQpg==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -2736,19 +2736,19 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /chart.js@4.3.2:
-    resolution: {integrity: sha512-pvQNyFOY1QmbmIr8oDORL16/FFivfxj8V26VFpFilMo4cNvkV5WXLJetDio365pd9gKUHGdirUTbqJfw8tr+Dg==}
+  /chart.js@4.3.3:
+    resolution: {integrity: sha512-aTk7pBw+x6sQYhon/NR3ikfUJuym/LdgpTlgZRe2PaEhjUMKBKyNaFCMVRAyTEWYFNO7qRu7iQVqOw/OqzxZxQ==}
     engines: {pnpm: '>=7'}
     dependencies:
       '@kurkle/color': 0.3.2
     dev: false
 
-  /chartjs-plugin-datalabels@2.2.0(chart.js@4.3.2):
+  /chartjs-plugin-datalabels@2.2.0(chart.js@4.3.3):
     resolution: {integrity: sha512-14ZU30lH7n89oq+A4bWaJPnAG8a7ZTk7dKf48YAzMvJjQtjrgg5Dpk9f+LbjCF6bpx3RAGTeL13IXpKQYyRvlw==}
     peerDependencies:
       chart.js: '>=3.0.0'
     dependencies:
-      chart.js: 4.3.2
+      chart.js: 4.3.3
     dev: false
 
   /chokidar@3.5.3:
@@ -4691,7 +4691,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.4.5
+      '@types/node': 20.4.8
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
@@ -5586,8 +5586,8 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier@3.0.0:
-    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+  /prettier@3.0.1:
+    resolution: {integrity: sha512-fcOWSnnpCrovBsmFZIGIy9UqK2FaI7Hqax+DIO0A9UxeVoY4iweyaFjS5TavZN97Hfehph0nhsZnjlVKzEQSrQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -5638,13 +5638,13 @@ packages:
       strip-json-comments: 2.0.1
     dev: true
 
-  /react-chartjs-2@5.2.0(chart.js@4.3.2)(react@18.2.0):
+  /react-chartjs-2@5.2.0(chart.js@4.3.3)(react@18.2.0):
     resolution: {integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==}
     peerDependencies:
       chart.js: ^4.1.1
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      chart.js: 4.3.2
+      chart.js: 4.3.3
       react: 18.2.0
     dev: false
 
@@ -6558,14 +6558,14 @@ packages:
       stylelint: 15.10.2
     dev: true
 
-  /stylelint-prettier@4.0.2(prettier@3.0.0)(stylelint@15.10.2):
+  /stylelint-prettier@4.0.2(prettier@3.0.1)(stylelint@15.10.2):
     resolution: {integrity: sha512-EoHnR2PiaWgpGtoI4VW7AzneMfwmwQsNwQ+3/E2k/a+ju5yO6rfPfop4vzPQKcJN4ZM1YbspEOPu88D8538sbg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       prettier: '>=3.0.0'
       stylelint: '>=15.8.0'
     dependencies:
-      prettier: 3.0.0
+      prettier: 3.0.1
       prettier-linter-helpers: 1.0.0
       stylelint: 15.10.2
     dev: true
@@ -6897,8 +6897,8 @@ packages:
       is-typed-array: 1.1.12
     dev: true
 
-  /typed-scss-modules@7.1.2(sass@1.64.2):
-    resolution: {integrity: sha512-n9rZDqCq15I3oOWjDiUCtzjhMNda/hDDJ/tKJDxmgdZ3oNk23isrOZd41MuOQ5C5q+V6P0gYELDqbLrHsDQ8Hg==}
+  /typed-scss-modules@7.1.3(sass@1.64.2):
+    resolution: {integrity: sha512-eXJw24HLIYvPmVDm77o9Vq9AdLOrx9cmd400suWE47ZnW7vsdqQ5LCWxHlW9+lBnpsOqD5kZcZDm5RLBG5oNMA==}
     hasBin: true
     peerDependencies:
       node-sass: ^7.0.3 || ^8.0.0
