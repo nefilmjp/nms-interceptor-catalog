@@ -50,16 +50,12 @@ export const InfoButton = () => {
               <Box>
                 <UnorderedList>
                   <ListItem>
-                    Some settings and favorites will be saved per browser.
-                  </ListItem>
-                  <ListItem>
-                    All interceptors in this catalog are found by Nefilm. You
-                    may verify the discoverer of the systems.
-                  </ListItem>
-                  <ListItem>
-                    This project started to find unique interceptors as prizes
-                    for events, so a few percent of the portal addresses are
-                    private.
+                    <Text as='span' fontWeight='bold'>
+                      Coordinates are not included.
+                    </Text>{' '}
+                    For each system, there is only one type of interceptor, so
+                    you may use dreadnought AI fragments to handpick
+                    class/params/SCS until you are satisfied.
                   </ListItem>
                   <ListItem>
                     In this project, increasing the total count takes priority.
@@ -67,10 +63,17 @@ export const InfoButton = () => {
                     reduce the processing time per ship.
                   </ListItem>
                   <ListItem>
-                    Coordinates are not included. For each system, there is only
-                    one type of interceptor, so you may use dreadnought AI
-                    fragments to handpick class/params/SCS until you are
-                    satisfied.
+                    This project started to find unique interceptors as prizes
+                    for events, so a few percent of the portal addresses are
+                    private.
+                  </ListItem>
+                  <ListItem>
+                    Currently, this project is being operated personally. All
+                    ships in this catalog are found by the project author. You
+                    may verify the discoverer of the systems.
+                  </ListItem>
+                  <ListItem>
+                    Some settings and favorites will be saved per browser.
                   </ListItem>
                 </UnorderedList>
               </Box>
