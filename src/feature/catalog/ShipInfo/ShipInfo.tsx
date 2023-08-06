@@ -1,23 +1,25 @@
 import { SimpleGrid, Text, Box } from '@chakra-ui/react';
 
 import { GALAXIES } from '@/config/galaxy';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import { ShipInfoShare } from './ShipInfoShare';
 import { ShipInfoTable } from './ShipInfoTable';
 import { ShipInfoTabs } from './ShipInfoTabs';
 
-import type { CatalogSettings } from '@/store/CatalogContext';
+import type { AppSettings } from '@/store/CommonContext';
 import type { ShipData } from '@/types';
 
 interface ShipInfoProps {
   data: ShipData | null;
   isSingle?: boolean;
-  settings: CatalogSettings;
-  setSettings: (settings: CatalogSettings) => void;
+  settings: AppSettings;
+  setSettings: (settings: AppSettings) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const ShipInfo = ({ ...props }: ShipInfoProps) => {
-  const { data, isSingle, settings, setSettings } = props;
+  const { data, isSingle, settings, setSettings, parts } = props;
 
   if (!data) return null;
 
@@ -46,7 +48,7 @@ export const ShipInfo = ({ ...props }: ShipInfoProps) => {
           setSettings={setSettings}
           settings={settings}
         />
-        <ShipInfoTable data={data} />
+        <ShipInfoTable data={data} parts={parts} />
       </SimpleGrid>
     </>
   );

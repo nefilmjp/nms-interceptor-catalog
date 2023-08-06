@@ -2,55 +2,38 @@
 
 import { Container } from '@chakra-ui/react';
 import { useContext, useMemo, useState } from 'react';
-import { useLocalStorage } from 'react-use';
 
 import { Header } from '@/components/Header';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { CatalogContent } from '@/feature/catalog/CatalogContent';
 import { CatalogHeader } from '@/feature/catalog/CatalogHeader';
-import {
-  CatalogContext,
-  CatalogSettings,
-  defaultSettings,
-} from '@/store/CatalogContext';
+import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 import { execQuery } from '@/utils/execQuery';
-
-import { DatabaseContext } from './providers';
 
 import type { InterceptorQuery, ShipData } from '@/types';
 
 export default function Catalog() {
-  const { coll } = useContext(DatabaseContext);
-
-  const [settings, setSettings] = useLocalStorage<CatalogSettings>(
-    'settings',
-    defaultSettings,
-  );
+  const { settings, coll } = useContext(CommonContext);
 
   const [items, setItems] = useState<(ShipData & LokiObj)[]>([]);
 
   const [intQuery, setIntQuery] = useState<InterceptorQuery>({});
 
   const mutate = useMemo(
-    () =>
-      settings ? () => setItems(execQuery(coll, intQuery, settings)) : null,
+    () => () => setItems(execQuery(coll, intQuery, settings)),
     [coll, intQuery, settings],
   );
 
   const value = useMemo(
-    () =>
-      settings && mutate
-        ? {
-            settings,
-            setSettings,
-            intQuery,
-            setIntQuery,
-            items,
-            setItems,
-            mutate,
-          }
-        : null,
-    [settings, setSettings, intQuery, items, mutate],
+    () => ({
+      intQuery,
+      setIntQuery,
+      items,
+      setItems,
+      mutate,
+    }),
+    [intQuery, items, mutate],
   );
 
   if (!value) return <LoadingSpinner />;

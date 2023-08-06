@@ -3,19 +3,18 @@ import { Box } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
-import { PARTS_SKIRT_TYPE } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
 export const SkirtStat = () => {
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = 'interceptor.skirtType' as keyof Interceptor;
 
   const values = useMemo(
     () => [
-      ...Object.keys(PARTS_SKIRT_TYPE).map((key) =>
+      ...Object.keys(parts.skirtType).map((key) =>
         coll!
           .chain()
           .find({ [propName]: { $eq: parseInt(key, 10) } })
@@ -26,22 +25,21 @@ export const SkirtStat = () => {
         .find({ [propName]: { $exists: false } })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, parts.skirtType],
   );
 
   const data = useMemo(
     () => ({
       labels: values[5]
-        ? [...Object.values(PARTS_SKIRT_TYPE), '(Not set)']
-        : Object.values(PARTS_SKIRT_TYPE),
+        ? [...Object.values(parts.skirtType), '(Not set)']
+        : Object.values(parts.skirtType),
       datasets: [
         {
           data: values,
         },
       ],
     }),
-    [values],
+    [parts.skirtType, values],
   );
 
   return (

@@ -21,8 +21,8 @@ import { useContext, useEffect, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useUpdateEffect } from 'react-use';
 
-import { DatabaseContext } from '@/app/providers';
 import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 import { execQuery } from '@/utils/execQuery';
 
 import { BodyFinder } from '../BodyFinder';
@@ -35,8 +35,8 @@ import { SkirtFinder } from '../SkirtFinder';
 import { TopFinder } from '../TopFinder';
 
 export const SearchDrawer = () => {
-  const { coll } = useContext(DatabaseContext);
-  const { items, setItems, intQuery, setIntQuery, mutate, settings } =
+  const { coll, settings, parts } = useContext(CommonContext);
+  const { items, setItems, intQuery, setIntQuery, mutate } =
     useContext(CatalogContext);
 
   const router = useRouter();
@@ -117,20 +117,42 @@ export const SearchDrawer = () => {
                 <ColorFinder
                   intQuery={intQuery}
                   label='Primary color'
+                  parts={parts}
                   propName='primaryColor'
                   setIntQuery={setIntQuery}
                 />
                 <ColorFinder
                   intQuery={intQuery}
                   label='Secondary color'
+                  parts={parts}
                   propName='secondaryColor'
                   setIntQuery={setIntQuery}
                 />
-                <HeadFinder intQuery={intQuery} setIntQuery={setIntQuery} />
-                <BodyFinder intQuery={intQuery} setIntQuery={setIntQuery} />
-                <TopFinder intQuery={intQuery} setIntQuery={setIntQuery} />
-                <BottomFinder intQuery={intQuery} setIntQuery={setIntQuery} />
-                <SkirtFinder intQuery={intQuery} setIntQuery={setIntQuery} />
+                <HeadFinder
+                  intQuery={intQuery}
+                  parts={parts}
+                  setIntQuery={setIntQuery}
+                />
+                <BodyFinder
+                  intQuery={intQuery}
+                  parts={parts}
+                  setIntQuery={setIntQuery}
+                />
+                <TopFinder
+                  intQuery={intQuery}
+                  parts={parts}
+                  setIntQuery={setIntQuery}
+                />
+                <BottomFinder
+                  intQuery={intQuery}
+                  parts={parts}
+                  setIntQuery={setIntQuery}
+                />
+                <SkirtFinder
+                  intQuery={intQuery}
+                  parts={parts}
+                  setIntQuery={setIntQuery}
+                />
                 <Divider />
                 <FavoritesToggle />
                 <PrivateToggle />

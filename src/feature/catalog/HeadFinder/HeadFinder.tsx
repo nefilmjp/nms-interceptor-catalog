@@ -10,17 +10,18 @@ import {
 } from '@chakra-ui/react';
 import { omit } from 'lodash-es';
 
-import { PARTS_HEAD } from '@/config/parts';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, Head } from '@/types';
 
 interface HeadFinderProps {
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const HeadFinder = ({ ...props }: HeadFinderProps) => {
-  const { intQuery, setIntQuery } = props;
+  const { intQuery, setIntQuery, parts } = props;
 
   return (
     <Box>
@@ -42,7 +43,7 @@ export const HeadFinder = ({ ...props }: HeadFinderProps) => {
         >
           <Stack direction='row' flexWrap='wrap'>
             {/* <Heading fontSize='md'>Type</Heading> */}
-            {Object.entries(PARTS_HEAD).map(([value, label]) => (
+            {Object.entries(parts.head).map(([value, label]) => (
               <Checkbox key={`head-finder-${value}`} value={value.toString()}>
                 {label}
               </Checkbox>

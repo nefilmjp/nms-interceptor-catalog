@@ -13,8 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 
-import { DatabaseContext } from '@/app/providers';
-import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 import { ShipInfo } from '../ShipInfo';
 
@@ -28,8 +27,7 @@ interface ShipInfoModalProps {
 export const ShipInfoModal = (props: ShipInfoModalProps) => {
   const { uuid, setUuid } = props;
 
-  const { coll } = useContext(DatabaseContext);
-  const { settings, setSettings } = useContext(CatalogContext);
+  const { coll, settings, setSettings, parts } = useContext(CommonContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -61,6 +59,7 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
           <ModalBody position='relative' pt='4' zIndex={1}>
             <ShipInfo
               data={shipData}
+              parts={parts}
               setSettings={setSettings}
               settings={settings}
             />

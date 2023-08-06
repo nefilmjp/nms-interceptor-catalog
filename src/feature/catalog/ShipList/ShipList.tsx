@@ -4,12 +4,14 @@ import { CollectionCellSizeAndPosition, Collection } from 'react-virtualized';
 
 import { THUMB_SIZES } from '@/config';
 import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 import { ShipInfoModal } from '../ShipInfoModal';
 import { ShipListItem } from '../ShipListItem';
 
 export const ShipList = () => {
-  const { items, settings } = useContext(CatalogContext);
+  const { settings } = useContext(CommonContext);
+  const { items } = useContext(CatalogContext);
 
   const itemMaxWidth = useMemo(
     () => THUMB_SIZES[settings.thumbSize].w,

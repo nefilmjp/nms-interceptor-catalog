@@ -3,8 +3,7 @@ import { Center } from '@chakra-ui/react';
 import { useContext, useMemo } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-import { DatabaseContext } from '@/app/providers';
-import { PARTS_PRIMARY_COLOR, PARTS_SECONDARY_COLOR } from '@/config/parts';
+import { CommonContext } from '@/store/CommonContext';
 
 import type { Interceptor } from '@/types';
 
@@ -14,7 +13,7 @@ interface ColroStatProps {
 
 export const ColorStat = ({ ...props }: ColroStatProps) => {
   const { shortPropName } = props;
-  const { coll } = useContext(DatabaseContext);
+  const { coll, parts } = useContext(CommonContext);
 
   const propName = `interceptor.${shortPropName}` as keyof Interceptor;
   const text = useMemo(
@@ -25,9 +24,9 @@ export const ColorStat = ({ ...props }: ColroStatProps) => {
   const colors = useMemo(
     () =>
       shortPropName === 'primaryColor'
-        ? PARTS_PRIMARY_COLOR
-        : PARTS_SECONDARY_COLOR,
-    [shortPropName],
+        ? parts.primaryColor
+        : parts.secondaryColor,
+    [parts, shortPropName],
   );
 
   const values = useMemo(
@@ -43,8 +42,7 @@ export const ColorStat = ({ ...props }: ColroStatProps) => {
         .find({ [propName]: { $exists: false } })
         .count(),
     ],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    [coll, colors, propName],
   );
 
   const data = useMemo(

@@ -26,10 +26,10 @@ import { useContext } from 'react';
 import { MdPhotoSizeSelectLarge } from 'react-icons/md';
 
 import { THUMB_SIZES } from '@/config';
-import { CatalogContext } from '@/store/CatalogContext';
+import { CommonContext } from '@/store/CommonContext';
 
 export const ThumbSizeButton = () => {
-  const { settings, setSettings } = useContext(CatalogContext);
+  const { settings, setSettings } = useContext(CommonContext);
 
   return (
     <Popover computePositionOnMount={true}>

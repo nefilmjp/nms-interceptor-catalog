@@ -10,17 +10,18 @@ import {
 } from '@chakra-ui/react';
 import { omit } from 'lodash-es';
 
-import { PARTS_SKIRT_TYPE } from '@/config/parts';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, OptionBool, SkirtType } from '@/types';
 
 interface SkirtFinderProps {
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const SkirtFinder = ({ ...props }: SkirtFinderProps) => {
-  const { intQuery, setIntQuery } = props;
+  const { intQuery, setIntQuery, parts } = props;
 
   return (
     <Box>
@@ -49,7 +50,7 @@ export const SkirtFinder = ({ ...props }: SkirtFinderProps) => {
         >
           <Stack direction='row' flexWrap='wrap'>
             {/* <Heading fontSize='md'>Type</Heading> */}
-            {Object.entries(PARTS_SKIRT_TYPE).map(([value, label]) => (
+            {Object.entries(parts.skirtType).map(([value, label]) => (
               <Checkbox key={`body-finder-${value}`} value={value.toString()}>
                 {label}
               </Checkbox>

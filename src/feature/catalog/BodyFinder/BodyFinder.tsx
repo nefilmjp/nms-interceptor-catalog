@@ -10,17 +10,19 @@ import {
 } from '@chakra-ui/react';
 import { omit } from 'lodash-es';
 
-import { PARTS_BODY_TYPE, PARTS_OPTION_WING } from '@/config/parts';
+import { PARTS_OPTION_WING } from '@/config/profiles/common';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, BodyType, Option3 } from '@/types';
 
 interface BodyFinderProps {
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 export const BodyFinder = ({ ...props }: BodyFinderProps) => {
-  const { intQuery, setIntQuery } = props;
+  const { intQuery, setIntQuery, parts } = props;
 
   return (
     <Box>
@@ -47,7 +49,7 @@ export const BodyFinder = ({ ...props }: BodyFinderProps) => {
         >
           <Stack direction='row' flexWrap='wrap'>
             {/* <Heading fontSize='md'>Type</Heading> */}
-            {Object.entries(PARTS_BODY_TYPE).map(([value, label]) => (
+            {Object.entries(parts.bodyType).map(([value, label]) => (
               <Checkbox key={`body-finder-${value}`} value={value.toString()}>
                 {label}
               </Checkbox>
@@ -67,7 +69,7 @@ export const BodyFinder = ({ ...props }: BodyFinderProps) => {
           }
         >
           <Stack direction='row' flexWrap='wrap'>
-            <Heading fontSize='md'>Wing</Heading>
+            <Heading fontSize='md'>{parts.wingLabel}</Heading>
             {Object.entries(PARTS_OPTION_WING).map(([value, label]) => (
               <Checkbox
                 key={`body-wing-finder-${value}`}

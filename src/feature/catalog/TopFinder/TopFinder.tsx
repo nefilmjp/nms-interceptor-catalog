@@ -2,13 +2,14 @@ import { Box, Heading } from '@chakra-ui/react';
 import { Select, MultiValue, OptionBase } from 'chakra-react-select';
 import { useMemo } from 'react';
 
-import { PARTS_TOP_TYPE } from '@/config/parts';
+import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { InterceptorQuery, TopType } from '@/types';
 
 interface TopFinderProps {
   intQuery: InterceptorQuery;
   setIntQuery: (interceptor: InterceptorQuery) => void;
+  parts: typeof PARTS_DEFAULT;
 }
 
 class Option implements OptionBase {
@@ -20,18 +21,18 @@ class Option implements OptionBase {
 }
 
 export const TopFinder = ({ ...props }: TopFinderProps) => {
-  const { intQuery, setIntQuery } = props;
+  const { intQuery, setIntQuery, parts } = props;
 
   const Options: Option[] = useMemo(
     () =>
       [
-        ...Object.entries(PARTS_TOP_TYPE).map(
+        ...Object.entries(parts.topType).map(
           ([value, label]) =>
             new Option(parseInt(value, 10) as unknown as TopType, label, ''),
         ),
         new Option(-1, 'Not set', ''),
       ].filter((op) => !intQuery.topType?.includes(op.value)),
-    [intQuery.topType],
+    [intQuery.topType, parts.topType],
   );
 
   return (
@@ -56,7 +57,7 @@ export const TopFinder = ({ ...props }: TopFinderProps) => {
             (value) =>
               new Option(
                 value,
-                value === -1 ? 'Not set' : PARTS_TOP_TYPE[value],
+                value === -1 ? 'Not set' : parts.topType[value],
                 '',
               ),
           ) || []

@@ -81,13 +81,6 @@ export const PARTS_OPTION_SEGMENT: Record<0 | 1 | 2, string> = {
   2: 'Long',
 };
 
-/** 水平尾翼 */
-export const PARTS_OPTION_WING: Record<0 | 1 | 2, string> = {
-  0: 'None',
-  1: 'Black',
-  2: 'Secondary Color',
-};
-
 /** ボディ/種類 */
 export const PARTS_BODY_TYPE: Record<BodyType, string> = {
   0: 'Core',
@@ -136,20 +129,18 @@ export const PARTS_SKIRT_TYPE: Record<SkirtType, string> = {
   4: 'Vented', // 吸気口つき
 };
 
-/** スカート/色 */
-export const PARTS_SKIRT_PAINTED: Record<0 | 1, string> = {
-  0: 'Black',
-  1: 'Secondary Color',
-};
-
-/** オプション/ONOFF */
-export const PARTS_EXISTS: Record<0 | 1, string> = {
-  0: 'None',
-  1: 'Exists',
-};
-
-/** オプション/ONOFF */
-export const PARTS_BOOLEAN: Record<0 | 1, string> = {
-  0: 'No',
-  1: 'Yes',
+export const PARTS_DEFAULT = {
+  primaryColor: PARTS_PRIMARY_COLOR,
+  secondaryColor: PARTS_SECONDARY_COLOR,
+  bodyType: PARTS_BODY_TYPE,
+  topType: PARTS_TOP_TYPE,
+  bottomType: PARTS_BOTTOM_TYPE,
+  skirtType: PARTS_SKIRT_TYPE,
+  head: PARTS_HEAD,
+  eyes: PARTS_EYES,
+  jaw: PARTS_JAW,
+  segment: PARTS_OPTION_SEGMENT,
+  fin: PARTS_OPTION_FIN,
+  backpackLabel: 'Stinger',
+  wingLabel: 'Elytra',
 };
