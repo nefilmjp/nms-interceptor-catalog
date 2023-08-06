@@ -141,6 +141,6 @@ export const PARTS_DEFAULT = {
   jaw: PARTS_JAW,
   segment: PARTS_OPTION_SEGMENT,
   fin: PARTS_OPTION_FIN,
-  backpackLabel: 'Stinger',
-  wingLabel: 'Elytra',
+  backpackLabel: 'Backpack',
+  wingLabel: 'Wing',
 };

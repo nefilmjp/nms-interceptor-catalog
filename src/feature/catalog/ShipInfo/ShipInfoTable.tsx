@@ -88,7 +88,7 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
             </Td>
           </Tr>
           <Tr>
-            <Th>Rear Wing</Th>
+            <Th>{parts.wingLabel}</Th>
             <Td>
               {interceptor.bodyWing !== undefined
                 ? PARTS_OPTION_WING[interceptor.bodyWing]

@@ -138,7 +138,7 @@ export const BodyStatDetail = () => {
           plugins: {
             title: {
               display: true,
-              text: `Body/Rear Wing (n=${coll!.count()})`,
+              text: `Body/${parts.wingLabel} (n=${coll!.count()})`,
             },
             datalabels: {
               textAlign: 'center',
