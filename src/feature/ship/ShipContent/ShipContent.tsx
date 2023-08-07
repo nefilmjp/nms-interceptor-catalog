@@ -1,4 +1,4 @@
-import { Center, Link, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import { useMount } from 'react-use';
 
@@ -47,7 +47,7 @@ export const ShipContent = (props: ShipContentProps) => {
             setSettings={setSettings}
             settings={settings}
           />
-          <Center mt='6'>
+          {/* <Center mt='6'>
             <Link href='https://ko-fi.com/D1D7N4R45' isExternal={true}>
               <img
                 alt='Buy Me a Coffee at ko-fi.com'
@@ -56,7 +56,7 @@ export const ShipContent = (props: ShipContentProps) => {
                 width='143'
               />
             </Link>
-          </Center>
+          </Center> */}
         </>
       ) : (
         <Text>Not found</Text>

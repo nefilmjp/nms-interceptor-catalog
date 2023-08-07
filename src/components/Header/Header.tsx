@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 
 import { GlobalMenu } from '../GlobalMenu';
 import { InfoButton } from '../InfoButton';
-import { KofiButton } from '../KofiButton';
 import { SettingsButton } from '../SettingsButton';
 
 interface HeaderProps {
@@ -39,7 +38,6 @@ export function Header(props: HeaderProps) {
       <HStack display={['none', 'none', 'flex']}>
         <SettingsButton />
         <InfoButton />
-        <KofiButton />
       </HStack>
       <GlobalMenu />
     </HStack>

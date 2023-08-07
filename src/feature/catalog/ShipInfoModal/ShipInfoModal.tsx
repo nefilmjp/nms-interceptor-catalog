@@ -8,8 +8,6 @@ import {
   ModalBody,
   ModalCloseButton,
   Portal,
-  Link,
-  Box,
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 
@@ -66,7 +64,7 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
           </ModalBody>
 
           <ModalFooter>
-            <Box mr='4'>
+            {/* <Box mr='4'>
               <Link href='https://ko-fi.com/D1D7N4R45' isExternal={true}>
                 <img
                   alt='Buy Me a Coffee at ko-fi.com'
@@ -75,7 +73,7 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
                   width='143'
                 />
               </Link>
-            </Box>
+            </Box> */}
             <Button
               mr={3}
               variant='outline'

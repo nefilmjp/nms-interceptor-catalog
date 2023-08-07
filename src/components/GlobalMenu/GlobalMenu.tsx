@@ -13,7 +13,6 @@ import { FaBars } from 'react-icons/fa6';
 
 import { ColorButton } from '../ColorButton';
 import { InfoButton } from '../InfoButton';
-import { KofiButton } from '../KofiButton';
 
 export const GlobalMenu = () => {
   return (
@@ -33,7 +32,6 @@ export const GlobalMenu = () => {
               <HStack justifyContent='center' spacing='2' w='full'>
                 <ColorButton />
                 <InfoButton />
-                <KofiButton isMenu={true} />
               </HStack>
             </MenuItem>
           </MenuList>
