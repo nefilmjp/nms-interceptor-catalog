@@ -27,7 +27,7 @@ export const InfoButton = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Tooltip hasArrow label='About this app' placement='top-end'>
+      <Tooltip hasArrow label='About this app'>
         <IconButton
           aria-label='About'
           icon={<FaCircleInfo />}
@@ -53,26 +53,27 @@ export const InfoButton = () => {
                     <Text as='span' fontWeight='bold'>
                       Coordinates are not included.
                     </Text>{' '}
-                    For each system, there is only one type of interceptor, so
-                    you may use dreadnought AI fragments to handpick
+                    There is only one type of interceptor for each system, so
+                    you can use Dreadnought AI fragments to pick
                     class/params/SCS until you are satisfied.
                   </ListItem>
                   <ListItem>
-                    Increasing the total count takes priority. For the sake of
-                    efficiency, some specs are omitted (or have lower accuracy).
+                    Increasing the total number is a priority in this project.
+                    For the sake of efficiency, some specifications are omitted
+                    (or have less accuracy).
                   </ListItem>
                   <ListItem>
-                    All ships in this catalog are found in vanilla game
-                    (Win/Steam) by the project author. You may verify the
+                    All ships in this catalog were found in vanilla game
+                    (Win/Steam) by the project author. You can verify the
                     discoverer of the systems.
                   </ListItem>
                   <ListItem>
-                    All ships have been searched for under clean conditions. Not
-                    duped, not modded, and not tool-assisted. Safe to use even
-                    if you are playing in a strictly clean condition.
+                    All ships were found while playing cleanly. Not duped, not
+                    modded, and not tool-assisted. Safe to use even if you play
+                    in a strictly clean.
                   </ListItem>
                   <ListItem>
-                    Currently, this project is being operated personally.
+                    Currently, this project is personally run.
                   </ListItem>
                   <ListItem>
                     This project started to find unique interceptors as prizes
@@ -80,7 +81,7 @@ export const InfoButton = () => {
                     private.
                   </ListItem>
                   <ListItem>
-                    Some settings and favorites will be saved per browser.
+                    Some settings and favorites are saved per browser.
                   </ListItem>
                 </UnorderedList>
               </Box>
