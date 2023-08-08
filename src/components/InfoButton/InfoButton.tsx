@@ -58,24 +58,29 @@ export const InfoButton = () => {
                     class/params/SCS until you are satisfied.
                   </ListItem>
                   <ListItem>
+                    Increasing the total count takes priority. For the sake of
+                    efficiency, some specs are omitted (or have lower accuracy).
+                  </ListItem>
+                  <ListItem>
+                    All ships in this catalog are found in vanilla game
+                    (Win/Steam) by the project author. You may verify the
+                    discoverer of the systems.
+                  </ListItem>
+                  <ListItem>
+                    All ships have been searched for under clean conditions. Not
+                    duped, not modded, and not tool-assisted. Safe to use even
+                    if you are playing in a strictly clean condition.
+                  </ListItem>
+                  <ListItem>
+                    Currently, this project is being operated personally.
+                  </ListItem>
+                  <ListItem>
                     This project started to find unique interceptors as prizes
                     for events, so a few percent of the portal addresses are
                     private.
                   </ListItem>
                   <ListItem>
-                    Increasing the total count takes priority. For the sake of
-                    efficiency, some specs are omitted (or have lower accuracy).
-                  </ListItem>
-                  <ListItem>
-                    All ships in this catalog are found in vanilla game (not
-                    modded, not tool assisted) by the project author. You may
-                    verify the discoverer of the systems.
-                  </ListItem>
-                  <ListItem>
                     Some settings and favorites will be saved per browser.
-                  </ListItem>
-                  <ListItem>
-                    Currently, this project is being operated personally.
                   </ListItem>
                 </UnorderedList>
               </Box>

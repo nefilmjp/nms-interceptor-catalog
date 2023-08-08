@@ -61,7 +61,6 @@ export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
 
   const isSmall = useBreakpointValue({ base: true, sm: false });
 
-  console.log(isSmall);
   if (!data) return null;
 
   return (
@@ -82,7 +81,6 @@ export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
             )
           }
           onClick={() => {
-            console.log(isFavorite);
             if (!settings.favorites) return;
             if (isFavorite) {
               setSettings({
