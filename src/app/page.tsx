@@ -1,7 +1,8 @@
 'use client';
 
-import { Container } from '@chakra-ui/react';
+import { Container, useToast } from '@chakra-ui/react';
 import { useContext, useMemo, useState } from 'react';
+import { useMount } from 'react-use';
 
 import { Header } from '@/components/Header';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
@@ -35,6 +36,19 @@ export default function Catalog() {
     }),
     [intQuery, items, mutate],
   );
+
+  const toast = useToast();
+
+  useMount(() => {
+    toast({
+      title:
+        'The interceptor crash site has been broken since the echoes update (2023-08-24). Please wait for the fix.',
+      position: 'top',
+      status: 'warning',
+      duration: null,
+      isClosable: true,
+    });
+  });
 
   if (!value) return <LoadingSpinner />;
 

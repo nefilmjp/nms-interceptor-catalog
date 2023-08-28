@@ -11,9 +11,9 @@ import {
 } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa6';
 
-import { ColorButton } from '../ColorButton';
 import { InfoButton } from '../InfoButton';
 import { KofiButton } from '../KofiButton';
+import { SettingsButton } from '../SettingsButton';
 
 export const GlobalMenu = () => {
   return (
@@ -31,7 +31,7 @@ export const GlobalMenu = () => {
           <MenuList minW='unset' p='0'>
             <MenuItem _focus={{ bg: 'charcoal.50' }} as='div' p='2'>
               <HStack justifyContent='center' spacing='2' w='full'>
-                <ColorButton />
+                <SettingsButton />
                 <InfoButton />
                 <KofiButton isMenu={true} />
               </HStack>
