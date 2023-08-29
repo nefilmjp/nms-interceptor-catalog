@@ -29,7 +29,7 @@
     "pnpm": "8.6.6"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": "^18.17.0"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.1.5",

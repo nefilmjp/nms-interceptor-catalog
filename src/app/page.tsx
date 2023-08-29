@@ -38,9 +38,12 @@ export default function Catalog() {
   );
 
   const toast = useToast();
+  const id = 'notice-toast';
 
   useMount(() => {
+    if (toast.isActive(id)) return;
     toast({
+      id,
       title:
         'The interceptor crash site has been broken since the echoes update (2023-08-24). Please wait for the fix.',
       position: 'top',
