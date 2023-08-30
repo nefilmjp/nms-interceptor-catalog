@@ -1,0 +1,8 @@
+{
+  "position": "top",
+  "duration": null,
+  "title": "Warning",
+  "description": "The interceptor crash site has been broken since the echoes update (2023-08-24). Please wait for the fix.",
+  "isClosable": true,
+  "status": "warning"
+}
