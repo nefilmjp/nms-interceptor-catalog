@@ -1,13 +1,14 @@
 'use client';
 
 import { CacheProvider } from '@chakra-ui/next-js';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import { useMemo, type ReactNode } from 'react';
+import { ChakraProvider, extendTheme, useToast } from '@chakra-ui/react';
+import { useMemo, type ReactNode, useEffect } from 'react';
 import { useLocalStorage } from 'react-use';
 
 import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { PARTS_PROFILES } from '@/config';
 import { useDatabase } from '@/hooks/useDatabase';
+import { useNotice } from '@/hooks/useNotice';
 import {
   type AppSettings,
   CommonContext,
@@ -38,7 +39,11 @@ export function Providers({ children }: { children: ReactNode }) {
     [settings?.partsName],
   );
 
-  const value = useMemo(
+  // Notice
+  const notice = useNotice();
+
+  // Common context
+  const value: CommonContext | null = useMemo(
     () =>
       settings && db
         ? {
@@ -47,9 +52,10 @@ export function Providers({ children }: { children: ReactNode }) {
             parts,
             db,
             coll,
+            notice,
           }
         : null,
-    [coll, db, parts, setSettings, settings],
+    [coll, db, parts, setSettings, settings, notice],
   );
 
   // Chakra UI
@@ -58,6 +64,17 @@ export function Providers({ children }: { children: ReactNode }) {
     useSystemColorMode: false,
   };
   const theme = extendTheme({ config });
+
+  // Toast
+  const toast = useToast();
+  const id = 'notice-toast';
+  useEffect(() => {
+    if (!toast || !notice || toast.isActive(id)) return;
+    toast({
+      ...notice,
+      id,
+    });
+  }, [notice, toast]);
 
   return (
     <CacheProvider>

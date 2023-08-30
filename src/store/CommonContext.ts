@@ -5,6 +5,7 @@ import { PARTS_PROFILES, THUMB_SIZES } from '@/config';
 import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { ShipData } from '@/types';
+import type { UseToastOptions } from '@chakra-ui/react';
 
 export interface AppSettings {
   thumbSize: keyof typeof THUMB_SIZES;
@@ -30,6 +31,7 @@ export interface CommonContext {
   parts: typeof PARTS_DEFAULT;
   db: LokiConstructor | undefined;
   coll: Collection<ShipData> | undefined;
+  notice: UseToastOptions | null | undefined;
 }
 
 export const CommonContext = createContext<CommonContext>({
@@ -40,4 +42,5 @@ export const CommonContext = createContext<CommonContext>({
   parts: PARTS_PROFILES.default,
   db: undefined,
   coll: undefined,
+  notice: undefined,
 });

@@ -3,6 +3,9 @@ import { PARTS_NMSGE } from './profiles/nmsge';
 
 export const PATH_PREFIX = process.env['NEXT_PUBLIC_PATH_PREFIX'];
 
+export const NOTICE_JSON_URL =
+  'https://pub-4d42217951464f6285e786458ba987fc.r2.dev/notice.json';
+
 export const THUMB_SIZES = {
   s: {
     label: 'XS (sq)',
