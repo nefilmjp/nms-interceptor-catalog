@@ -14,11 +14,13 @@ import {
   Divider,
   Tooltip,
   Text,
+  Link,
+  Icon,
 } from '@chakra-ui/react';
 import LZstring from 'lz-string';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect, useRef } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaSearch } from 'react-icons/fa';
 import { useUpdateEffect } from 'react-use';
 
 import { CatalogContext } from '@/store/CatalogContext';
@@ -156,6 +158,24 @@ export const SearchDrawer = () => {
                 <Divider />
                 <FavoritesToggle />
                 <PrivateToggle />
+                <Divider />
+                <Text>
+                  <Link
+                    color='blue.400'
+                    href='https://hackmd.io/@Nefilm/nms-interceptor-parts-guide'
+                    isExternal={true}
+                  >
+                    Interceptor Parts Specifications
+                    <Icon
+                      as={FaExternalLinkAlt}
+                      h='0.8em'
+                      ml='0.2em'
+                      mr='0.2em'
+                      verticalAlign='baseline'
+                      w='0.8em'
+                    />
+                  </Link>
+                </Text>
               </SimpleGrid>
             </DrawerBody>
 
