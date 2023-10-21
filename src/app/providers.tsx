@@ -14,6 +14,7 @@ import {
   CommonContext,
   defaultSettings,
 } from '@/store/CommonContext';
+import { getShortId } from '@/utils/getShortId';
 
 import type { ShipData } from '@/types';
 
@@ -32,6 +33,14 @@ export function Providers({ children }: { children: ReactNode }) {
     'settings',
     defaultSettings,
   );
+
+  // UUIDからShipId（8桁）に変更したことによる経過措置
+  if (settings?.favorites?.some((fav) => fav.length > 9)) {
+    setSettings({
+      ...settings,
+      favorites: settings.favorites.map((fav) => getShortId(fav)),
+    });
+  }
 
   // Parts Name
   const parts = useMemo(

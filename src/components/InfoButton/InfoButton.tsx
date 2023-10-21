@@ -54,8 +54,8 @@ export const InfoButton = () => {
                       Coordinates are not included.
                     </Text>{' '}
                     There is only one type of interceptor for each system, so
-                    you can use Dreadnought AI fragments to pick
-                    class/params/SCS until you are satisfied.
+                    you can use Carrier AI fragments to pick class/SCS until you
+                    are satisfied.
                   </ListItem>
                   <ListItem>
                     Increasing the total number is a priority in this project.
@@ -84,6 +84,26 @@ export const InfoButton = () => {
                     Some settings and favorites are saved per browser.
                   </ListItem>
                 </UnorderedList>
+              </Box>
+              <Box>
+                <Text>Parts specifications</Text>
+                <Text ml='4' mt='1'>
+                  <Link
+                    color='blue.400'
+                    href='https://hackmd.io/@Nefilm/nms-interceptor-parts-guide'
+                    isExternal={true}
+                  >
+                    Interceptor Parts Specifications
+                    <Icon
+                      as={FaExternalLinkAlt}
+                      h='0.8em'
+                      ml='0.2em'
+                      mr='0.2em'
+                      verticalAlign='baseline'
+                      w='0.8em'
+                    />
+                  </Link>
+                </Text>
               </Box>
               <Box>
                 <Text>Author</Text>

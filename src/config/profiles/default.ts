@@ -97,8 +97,10 @@ export const PARTS_TOP_TYPE: Record<TopType, string> = {
   3: 'Horizontal/Open', // 横板/隙間あり
   4: 'Vertical/O-Type', // 縦板/可動/隙間なし
   5: 'Vertical/H-Type', // 縦板/可動/H
-  6: 'Vertical/X-Type', // 縦板/可動/X
-  7: 'Boxed', // 縦板/固定
+  6: 'Vertical/X-Type (Half)', // 縦板/可動/X
+  7: 'Vertical/X-Type (Full)', // 縦板/可動/X
+  8: 'Boxed (Half)', // 縦板/固定
+  9: 'Boxed (Full)', // 縦板/固定
 };
 
 /** オプション/フィン */
@@ -116,8 +118,10 @@ export const PARTS_BOTTOM_TYPE: Record<BottomType, string> = {
   3: 'Horizontal/Open', // 横板/隙間あり/可動
   4: 'Vertical/O-Type', // 縦板/可動/隙間なし
   5: 'Vertical/H-Type', // 縦板/可動/H
-  6: 'Vertical/X-Type', // 縦板/可動/X
-  7: 'Boxed', // 縦板/固定
+  6: 'Vertical/X-Type (Half)', // 縦板/可動/X
+  7: 'Vertical/X-Type (Full)', // 縦板/可動/X
+  8: 'Boxed (Half)', // 縦板/固定
+  9: 'Boxed (Full)', // 縦板/固定
 };
 
 /** スカート/種類 */

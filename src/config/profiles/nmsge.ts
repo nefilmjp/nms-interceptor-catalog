@@ -97,8 +97,10 @@ const PARTS_TOP_TYPE: Record<TopType, string> = {
   3: 'I-Wing Open', // 横板/隙間あり
   4: 'X-Wing Closed', // 縦板/可動/隙間なし
   5: 'X-Wing', // 縦板/可動/H
-  6: 'X-Wing Rear/Full', // 縦板/可動/X
-  7: 'Carriage', // 縦板/固定
+  6: 'X-Wing Rear', // 縦板/可動/X
+  7: 'X-Wing Full', // 縦板/可動/X
+  8: 'X-Wing Rear + Carriage', // 縦板/固定
+  9: 'X-Wing Full + Carriage', // 縦板/固定
 };
 
 /** オプション/フィン */
@@ -116,8 +118,10 @@ const PARTS_BOTTOM_TYPE: Record<BottomType, string> = {
   3: 'I-Wing Open', // 横板/隙間あり/可動
   4: 'X-Wing Closed', // 縦板/可動/隙間なし
   5: 'X-Wing', // 縦板/可動/H
-  6: 'X-Wing Rear/Full', // 縦板/可動/X
-  7: 'Carriage', // 縦板/固定
+  6: 'X-Wing Rear', // 縦板/可動/X
+  7: 'X-Wing Full', // 縦板/可動/X
+  8: 'X-Wing Rear + Carriage', // 縦板/固定
+  9: 'X-Wing Full + Carriage', // 縦板/固定
 };
 
 /** スカート/種類 */
