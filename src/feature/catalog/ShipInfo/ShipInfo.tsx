@@ -27,7 +27,7 @@ export const ShipInfo = ({ ...props }: ShipInfoProps) => {
     <>
       {data.imageIds && <ShipInfoTabs imageIds={data.imageIds} />}
       <SimpleGrid columns={1}>
-        {data.address !== undefined && (
+        {data.address !== undefined && data.galaxy !== undefined && (
           <Box ml='auto' mr='auto'>
             <Text fontSize='lg' fontWeight='bold'>
               {`${GALAXIES[data.galaxy]} (${data.galaxy + 1})`}

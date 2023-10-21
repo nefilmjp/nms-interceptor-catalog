@@ -12,8 +12,6 @@ import {
 import { useEffect, useMemo } from 'react';
 import { FaCopy, FaExternalLinkAlt, FaHeart, FaRegHeart } from 'react-icons/fa';
 
-import { getShortId } from '@/utils/getShortId';
-
 import type { AppSettings } from '@/store/CommonContext';
 import type { ShipData } from '@/types';
 
@@ -30,17 +28,15 @@ export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
   const { onCopy, setValue, hasCopied } = useClipboard('');
 
   const isFavorite = useMemo(
-    () => (settings.favorites.includes(data.uuid) ? true : false),
-    [data.uuid, settings.favorites],
+    () => (settings.favorites.includes(data.shipId) ? true : false),
+    [data.shipId, settings.favorites],
   );
 
   const toast = useToast();
 
   useEffect(() => {
-    setValue(
-      `${location.protocol}//${location.host}/ship/${getShortId(data.uuid)}/`,
-    );
-  }, [data.uuid, setValue]);
+    setValue(`${location.protocol}//${location.host}/ship/${data.shipId}/`);
+  }, [data.shipId, setValue]);
 
   useUpdateEffect(() => {
     if (!hasCopied) return;
@@ -54,9 +50,8 @@ export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
   }, [hasCopied]);
 
   const shareURL = useMemo(
-    () =>
-      `${location.protocol}//${location.host}/ship/${getShortId(data.uuid)}/`,
-    [data.uuid],
+    () => `${location.protocol}//${location.host}/ship/${data.shipId}/`,
+    [data.shipId],
   );
 
   const isSmall = useBreakpointValue({ base: true, sm: false });
@@ -86,13 +81,13 @@ export const ShipInfoShare = ({ ...props }: ShipInfoShareProps) => {
               setSettings({
                 ...settings,
                 favorites: [
-                  ...settings.favorites.filter((id) => id !== data.uuid),
+                  ...settings.favorites.filter((id) => id !== data.shipId),
                 ],
               });
             } else {
               setSettings({
                 ...settings,
-                favorites: [...settings.favorites, data.uuid],
+                favorites: [...settings.favorites, data.shipId],
               });
             }
           }}

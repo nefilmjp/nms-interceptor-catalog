@@ -6,6 +6,13 @@ export const PATH_PREFIX = process.env['NEXT_PUBLIC_PATH_PREFIX'];
 export const NOTICE_JSON_URL =
   'https://pub-4d42217951464f6285e786458ba987fc.r2.dev/notice.json';
 
+// 表示順序保証のために分ける
+export const DATASETS = [1, 2] as const;
+export const DATASET_LABEL: Record<(typeof DATASETS)[number], string> = {
+  1: 'Season1',
+  2: 'Season2',
+};
+
 export const THUMB_SIZES = {
   s: {
     label: 'XS (sq)',

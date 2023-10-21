@@ -17,7 +17,7 @@ import type { ShipData } from '@/types';
 interface ShipListItemProps {
   data: ShipData;
   onKeyDown: KeyboardEventHandler<HTMLButtonElement>;
-  onClick: (uuid: string) => void;
+  onClick: (shipId: string) => void;
   style: CSSProperties;
 }
 
@@ -42,7 +42,7 @@ export const ShipListItem = ({ ...props }: ShipListItemProps) => {
     // eslint-disable-next-line @next/next/no-img-element
     <button
       className={clsx(styles.thumbButton)}
-      onClick={() => onClick(data.uuid)}
+      onClick={() => onClick(data.shipId)}
       onKeyDown={onKeyDown}
       style={style}
     >
@@ -59,7 +59,7 @@ export const ShipListItem = ({ ...props }: ShipListItemProps) => {
             fill='var(--chakra-colors-white)'
           />
         )}
-        {settings.favorites && settings.favorites.includes(data.uuid) && (
+        {settings.favorites && settings.favorites.includes(data.shipId) && (
           <ImHeart
             className={styles.favIcon}
             fill='var(--chakra-colors-white)'

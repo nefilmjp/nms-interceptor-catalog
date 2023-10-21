@@ -20,6 +20,7 @@ import {
 import { useContext, useRef } from 'react';
 import { FaGear } from 'react-icons/fa6';
 
+import { DatasetFinder } from '@/feature/catalog/DatasetFinder';
 import { CommonContext } from '@/store/CommonContext';
 
 export const SettingsButton = () => {
@@ -77,6 +78,7 @@ export const SettingsButton = () => {
                     Use NMSGE compatible parts names
                   </FormLabel>
                 </FormControl>
+                <DatasetFinder />
               </SimpleGrid>
             </DrawerBody>
 

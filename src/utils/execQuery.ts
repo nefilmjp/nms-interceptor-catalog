@@ -39,7 +39,9 @@ export const execQuery = (
 
   if (settings.showPrivate !== true) queryObj['availability'] = { $eq: 1 };
   if (settings.onlyFavorites === true)
-    queryObj['uuid'] = { $in: settings.favorites };
+    queryObj['shipId'] = { $in: settings.favorites };
+  if (settings.datasets?.length > 0)
+    queryObj['dataset'] = { $in: settings.datasets };
 
   const res = coll.chain().find(queryObj).data();
   return res;

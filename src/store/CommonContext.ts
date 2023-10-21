@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext } from 'react';
 
-import { PARTS_PROFILES, THUMB_SIZES } from '@/config';
+import { PARTS_PROFILES, DATASETS, THUMB_SIZES } from '@/config';
 import { PARTS_DEFAULT } from '@/config/profiles/default';
 
 import type { ShipData } from '@/types';
@@ -14,6 +14,7 @@ export interface AppSettings {
   favorites: string[];
   rearView: boolean;
   partsName: keyof typeof PARTS_PROFILES;
+  datasets: (typeof DATASETS)[number][];
 }
 
 export const defaultSettings: AppSettings = {
@@ -23,6 +24,7 @@ export const defaultSettings: AppSettings = {
   favorites: [],
   rearView: false,
   partsName: 'default',
+  datasets: [],
 };
 
 export interface CommonContext {

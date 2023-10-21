@@ -20,12 +20,12 @@ import { ShipInfo } from '../ShipInfo';
 import type { ShipData } from '@/types';
 
 interface ShipInfoModalProps {
-  uuid: string | null;
-  setUuid: (uuid: string | null) => void;
+  shipId: string | null;
+  setShipId: (shipId: string | null) => void;
 }
 
 export const ShipInfoModal = (props: ShipInfoModalProps) => {
-  const { uuid, setUuid } = props;
+  const { shipId, setShipId } = props;
 
   const { coll, settings, setSettings, parts } = useContext(CommonContext);
 
@@ -34,14 +34,14 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
   const [shipData, setShipData] = useState<ShipData | null>(null);
 
   useEffect(() => {
-    if (!uuid) return;
+    if (!shipId) return;
     if (!coll) return;
-    const shipData = coll.findOne({ uuid: { $eq: uuid } });
+    const shipData = coll.findOne({ shipId: { $eq: shipId } });
     if (!shipData) return;
     setShipData(shipData);
     onOpen();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [uuid]);
+  }, [shipId]);
 
   return (
     <Portal>
@@ -49,7 +49,7 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
         isOpen={isOpen}
         size='4xl'
         onClose={() => {
-          setUuid(null);
+          setShipId(null);
           onClose();
         }}
       >
@@ -80,7 +80,7 @@ export const ShipInfoModal = (props: ShipInfoModalProps) => {
               mr={3}
               variant='outline'
               onClick={() => {
-                setUuid(null);
+                setShipId(null);
                 onClose();
               }}
             >

@@ -1,3 +1,5 @@
+import { DATASETS } from '@/config';
+
 /** Fixed Length Array */
 export type FixedLengthArray<
   T,
@@ -53,7 +55,7 @@ export interface Core {
 }
 
 /** 上部構造/種類 */
-export type TopType = IntRange<0, 8>;
+export type TopType = IntRange<0, 10>;
 
 /** 上部構造 */
 export interface Top {
@@ -74,7 +76,7 @@ export interface Top {
 }
 
 /** 上部構造/種類 */
-export type BottomType = IntRange<0, 8>;
+export type BottomType = IntRange<0, 10>;
 
 /** 下部構造 */
 export interface Bottom {
@@ -162,16 +164,19 @@ export type PortalAddress = FixedLengthArray<PortalGlyph, 12>;
 
 //----------------------------------------------------------
 
-export interface ShipData extends Interceptor {
-  uuid: string;
-  /** 0-255 */
-  galaxy: Galaxy;
-  /** Portal Address (decimal) */
-  address?: number | undefined;
+export interface ShipData {
+  //uuid: string;
+  shipId: string;
   /** 公開設定（0:未設定, 1:公開, 2:未公開, 3:条件付き） */
   availability?: 0 | 1 | 2 | 3;
-  comment?: string;
-  albumId?: string;
-  imageIds?: string[];
+  /** 画像ID配列 */
+  imageIds: string[];
+  /** Interceptor */
   interceptor: Interceptor;
+  /** データセット */
+  dataset: (typeof DATASETS)[number];
+  /** 0-255 */
+  galaxy?: Galaxy | undefined;
+  /** Portal Address (decimal) */
+  address?: number | undefined;
 }

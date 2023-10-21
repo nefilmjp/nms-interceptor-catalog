@@ -47,11 +47,11 @@ export const ShipList = () => {
     gridRef.current?.recomputeCellSizesAndPositions();
   }, [itemHeight]);
 
-  const [uuid, setUuid] = useState<string | null>(null);
+  const [shipId, setShipId] = useState<string | null>(null);
 
   return (
     <>
-      <ShipInfoModal setUuid={setUuid} uuid={uuid} />
+      <ShipInfoModal setShipId={setShipId} shipId={shipId} />
       <Collection
         cellCount={items.length}
         height={outerHeight}
@@ -63,7 +63,7 @@ export const ShipList = () => {
               // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
               data={items[index]!}
               key={key}
-              onClick={(uuid: string) => setUuid(uuid)}
+              onClick={(shipId: string) => setShipId(shipId)}
               style={style}
               onKeyDown={(event) => {
                 const target = event.currentTarget as HTMLButtonElement;

@@ -18,7 +18,6 @@ import {
   PARTS_SKIRT_PAINTED,
 } from '@/config/profiles/common';
 import { PARTS_DEFAULT } from '@/config/profiles/default';
-import { getShortId } from '@/utils/getShortId';
 
 import type { ShipData } from '@/types';
 
@@ -148,12 +147,12 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
           <Tr>
             <Th>Ship ID</Th>
             <Td>
-              {getShortId(data.uuid)}
+              {data.shipId}
               <Button
                 ml='2'
                 size='xs'
                 onClick={() => {
-                  setValue(getShortId(data.uuid));
+                  setValue(data.shipId);
                 }}
               >
                 Copy
@@ -168,12 +167,12 @@ export const ShipInfoTable = ({ ...props }: ShipInfoTableProps) => {
                 : '-'}
             </Td>
           </Tr>
-          {data.comment !== undefined && (
+          {/* {data.comment !== undefined && (
             <Tr>
               <Th>Comment</Th>
               <Td>{data.comment}</Td>
             </Tr>
-          )}
+          )} */}
         </Tbody>
       </Table>
     </TableContainer>

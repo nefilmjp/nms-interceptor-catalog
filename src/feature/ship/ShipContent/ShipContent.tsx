@@ -26,7 +26,7 @@ export const ShipContent = (props: ShipContentProps) => {
       setData(null);
       return;
     }
-    const shipData = coll.where((obj) => obj.uuid.startsWith(shipId));
+    const shipData = coll.where((obj) => obj.shipId === shipId);
     if (!shipData || shipData.length === 0) {
       setData(null);
       return;

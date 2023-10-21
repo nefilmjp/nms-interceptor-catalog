@@ -84,7 +84,12 @@ export const SearchDrawer = () => {
     else params.set('q', serializedQuery);
     router.push(pathname + '?' + params.toString());
     mutate();
-  }, [intQuery, settings.showPrivate, settings.onlyFavorites]);
+  }, [
+    intQuery,
+    settings.showPrivate,
+    settings.datasets,
+    settings.onlyFavorites,
+  ]);
 
   return (
     <>
