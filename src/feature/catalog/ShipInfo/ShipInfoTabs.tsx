@@ -52,7 +52,7 @@ export const ShipInfoTabs = ({ ...props }: ShipInfoTabsProps) => {
               style={{ position: 'relative' }}
               width='1024'
             />
-            <Text fontSize='sm' mt='2' textAlign='right'>
+            <Text fontSize='sm' mt='2' position='relative' textAlign='right'>
               Show in{' '}
               <Link
                 color='blue.400'
