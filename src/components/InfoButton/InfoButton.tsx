@@ -58,6 +58,32 @@ export const InfoButton = () => {
                     are satisfied.
                   </ListItem>
                   <ListItem>
+                    Prior to the Worlds Part I Update (Ver 5.0), the primary
+                    color black was displayed as a dark purple. Screenshots from
+                    all of Seasons 1 and 2, as well as part of Season 3, use
+                    dark purple.
+                  </ListItem>
+                  <ListItem>
+                    If you are not sure how the parts of the Interceptor fit
+                    together,{' '}
+                    <Link
+                      color='blue.400'
+                      href='https://hackmd.io/@Nefilm/nms-interceptor-parts-guide'
+                      isExternal={true}
+                    >
+                      Interceptor Parts Specifications
+                      <Icon
+                        as={FaExternalLinkAlt}
+                        h='0.8em'
+                        ml='0.2em'
+                        mr='0.2em'
+                        verticalAlign='baseline'
+                        w='0.8em'
+                      />
+                    </Link>{' '}
+                    may be helpful.
+                  </ListItem>
+                  <ListItem>
                     Increasing the total number is a priority in this project.
                     For the sake of efficiency, some specifications are omitted
                     (or have less accuracy).
@@ -77,8 +103,8 @@ export const InfoButton = () => {
                   </ListItem>
                   <ListItem>
                     This project started to find unique interceptors as prizes
-                    for events, so a few percent of the portal addresses are
-                    private.
+                    for events, so a few percent (less than 1%) of the portal
+                    addresses are private.
                   </ListItem>
                   <ListItem>
                     Some settings and favorites are saved per browser.
@@ -86,32 +112,12 @@ export const InfoButton = () => {
                 </UnorderedList>
               </Box>
               <Box>
-                <Text>Parts specifications</Text>
-                <Text ml='4' mt='1'>
-                  <Link
-                    color='blue.400'
-                    href='https://hackmd.io/@Nefilm/nms-interceptor-parts-guide'
-                    isExternal={true}
-                  >
-                    Interceptor Parts Specifications
-                    <Icon
-                      as={FaExternalLinkAlt}
-                      h='0.8em'
-                      ml='0.2em'
-                      mr='0.2em'
-                      verticalAlign='baseline'
-                      w='0.8em'
-                    />
-                  </Link>
-                </Text>
-              </Box>
-              <Box>
                 <Text>Author</Text>
                 <Text ml='4' mt='1'>
                   Nefilm (
                   <Link
                     color='blue.400'
-                    href='https://twitter.com/nefilm_rc'
+                    href='https://x.com/nefilm_rc'
                     isExternal={true}
                   >
                     @nefilm_rc
