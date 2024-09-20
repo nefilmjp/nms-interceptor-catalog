@@ -7,10 +7,11 @@ export const NOTICE_JSON_URL =
   'https://pub-4d42217951464f6285e786458ba987fc.r2.dev/notice.json';
 
 // 表示順序保証のために分ける
-export const DATASETS = [1, 2] as const;
+export const DATASETS = [1, 2, 3] as const;
 export const DATASET_LABEL: Record<(typeof DATASETS)[number], string> = {
   1: 'Season1',
   2: 'Season2',
+  3: 'Season3',
 };
 
 export const THUMB_SIZES = {

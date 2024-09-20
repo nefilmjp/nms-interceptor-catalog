@@ -11,7 +11,7 @@ import {
 
 /** カラー */
 const PARTS_PRIMARY_COLOR: Record<Color, string> = {
-  0: 'Dark purple',
+  0: 'Black',
   1: 'White',
   2: 'Orange',
   3: 'Red',
